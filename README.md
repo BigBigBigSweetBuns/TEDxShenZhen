@@ -1,24 +1,11 @@
 # tedxshenzhen
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+构建基础的官网
 
-### Lints and fixes files
-```
-npm run lint
-```
+着重设计于2021年的演讲宣传页
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 主要技术与框架
+
+vue、vue-router、webpack、node、axios、bootstrap-vue、sass
