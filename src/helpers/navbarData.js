@@ -2,7 +2,7 @@ var navbarData = [
     {
         name: "EVENTS",
         key: "/Events",
-        dorpDown: [
+        dropDown: [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
@@ -16,7 +16,7 @@ var navbarData = [
     {
         name: "VIDEOS",
         key: "/Videos",
-        dorpDown: [
+        dropDown: [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
@@ -30,7 +30,7 @@ var navbarData = [
     {
         name: "SPEAKERS",
         key: "/Speakers",
-        dorpDown: [
+        dropDown: [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
@@ -40,7 +40,7 @@ var navbarData = [
     {
         name: "NEWS & IDEAS",
         key: "",
-        dorpDown: [
+        dropDown: [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
@@ -50,7 +50,7 @@ var navbarData = [
     {
         name: "PARTNERS",
         key: "/PARTNERS",
-        dorpDown: [
+        dropDown: [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
@@ -60,7 +60,7 @@ var navbarData = [
     {
         name: "COMMUNITY",
         key: "/COMMUNITY",
-        dorpDown: [
+        dropDown: [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
@@ -70,7 +70,7 @@ var navbarData = [
     {
         name: "ABOUT",
         key: "/About",
-        dorpDown: [
+        dropDown: [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
