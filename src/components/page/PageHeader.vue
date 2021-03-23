@@ -29,7 +29,7 @@
           >
             <b-dropdown-item
               href="#"
-              v-for="(dorp, i) in item"
+              v-for="(dorp, i) in item.dropDown"
               :key="i"
             ></b-dropdown-item>
           </b-nav-item-dropdown>
