@@ -1,13 +1,26 @@
 <template>
   <div id="app">
+    <page-header></page-header>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <router-view />
+    <page-footer></page-footer>
   </div>
 </template>
 
+<script>
+import PageHeader from "@/components/page/PageHeader";
+import PageFooter from "@/components/page/PageFooter";
+export default {
+  name: "APP",
+  components: { PageHeader, PageFooter },
+  data: function () {
+    return {};
+  },
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

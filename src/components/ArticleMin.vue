@@ -22,10 +22,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .article {
-}
-header {
-  margin-top: 10px;
+  header {
+    margin-top: 10px;
+  }
 }
 </style>
