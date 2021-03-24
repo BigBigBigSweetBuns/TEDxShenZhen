@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/main.scss";
+@import "@/assets/variable.scss";
 .article {
   .banner {
     img {
