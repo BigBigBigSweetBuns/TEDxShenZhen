@@ -3,12 +3,12 @@
     <div class="container">
       <div class="site-branding">
         <div class="site-title">
-          <a href="#"
-            ><img
+          <router-link to="/">
+            <img
               src="http://120.79.41.237/wp-content/uploads/2017/12/TEDLOGO.jpg"
               alt=""
               srcset=""
-          /></a>
+          /></router-link>
         </div>
         <div class="header-actions">
           <i class="icon icon-search">search</i>

@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../../assets/logo.png" />
     <article-min />
     <listing-section></listing-section>
   </div>
@@ -15,6 +14,14 @@ export default {
   components: {
     ArticleMin,
     ListingSection,
+  },
+  methods: {
+    // onSlideStart(slide) {
+    //   this.sliding = true;
+    // },
+    // onSlideEnd(slide) {
+    //   this.sliding = false;
+    // },
   },
 };
 </script>
