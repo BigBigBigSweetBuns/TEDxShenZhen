@@ -8,7 +8,7 @@ const routes = [
     path: '/',
     name: 'Home',
     component: () => import(/* webpackChunkName: "Home" */ '../views/Home/Home.vue')
-    // }, {
+  }, {
     //   path: '/events',
     //   name: 'Events',
     //   component: () => import(/* webpackChunkName: "Events" */ '../views/Events/Events.vue')
@@ -21,10 +21,14 @@ const routes = [
     //   name: 'Speakers',
     //   component: () => import(/* webpackChunkName: "Speakers" */ '../views/Speakers/Speakers.vue')
     // }, {
-    //   path: '/all-news',
-    //   name: 'All-News',
-    //   component: () => import(/* webpackChunkName: "All-News" */ '../views/All-News/All-News.vue')
-    // }, {
+    path: '/all-news',
+    name: 'All-News',
+    component: () => import(/* webpackChunkName: "All-News" */ '../views/News/All-News.vue')
+  }, {
+    path: '/news',
+    name: 'News',
+    component: () => import(/* webpackChunkName: "All-News" */ '../views/News/News.vue')
+  // }, {
     //   path: '/parters',
     //   name: 'Partners',
     //   component: () => import(/* webpackChunkName: "Partners" */ '../views/Partners/Partners.vue')
