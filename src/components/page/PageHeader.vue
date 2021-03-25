@@ -5,7 +5,7 @@
         <div class="site-title">
           <router-link to="/">
             <img
-              :src="'%E7%99%BD%E4%BD%8E.jpg?Expires=1616663447&OSSAccessKeyId=TMP.3KfTEV8UvBdxvLn9s5bTbGxtGnn6uaoPqhV3v7hVBfGbtDBuBGp231p7PxobHAQnZccjnGD5Y6W8FLYzraY7dqEQav45Lm&Signature=UTmlUGvoSTdrDvFyb7ZdvJcLhqE%3D&versionId=CAEQHRiBgMCCgfKdwxciIDk0MzY4YTQ2YmRjMjQwMGY5MmRjMmI3ZDIxYzMyNjU0&response-content-type=application%2Foctet-stream' | imageBaseURL"
+              :src="'logo-white.jpg?Expires=1616670468&OSSAccessKeyId=TMP.3KfTEV8UvBdxvLn9s5bTbGxtGnn6uaoPqhV3v7hVBfGbtDBuBGp231p7PxobHAQnZccjnGD5Y6W8FLYzraY7dqEQav45Lm&Signature=EUwnBg96Vk1z43A2roRRxPWk1KU%3D&versionId=CAEQHRiBgMDym7WjwxciIGQzYjYwZDhmNWMyYzQ2ZWU4OGQxNjMxNGNiNzZlODNl&response-content-type=application%2Foctet-stream' | imageBaseURL"
               alt=""
               srcset=""
           /></router-link>
