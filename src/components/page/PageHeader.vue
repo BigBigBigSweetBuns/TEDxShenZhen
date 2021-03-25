@@ -5,7 +5,7 @@
         <div class="site-title">
           <router-link to="/">
             <img
-              src="http://120.79.41.237/wp-content/uploads/2017/12/TEDLOGO.jpg"
+              :src="'%E7%99%BD%E4%BD%8E.jpg?Expires=1616647291&OSSAccessKeyId=TMP.3KfTEV8UvBdxvLn9s5bTbGxtGnn6uaoPqhV3v7hVBfGbtDBuBGp231p7PxobHAQnZccjnGD5Y6W8FLYzraY7dqEQav45Lm&Signature=Pd0jGHNb8oMnxoCb8Xdtlu6wMEY%3D&versionId=CAEQHRiBgMCCgfKdwxciIDk0MzY4YTQ2YmRjMjQwMGY5MmRjMmI3ZDIxYzMyNjU0&response-content-type=application%2Foctet-stream' | imageBaseURL"
               alt=""
               srcset=""
           /></router-link>
@@ -58,7 +58,7 @@ export default {
     .site-title {
       margin: 0.5rem 0;
       img {
-        height: 3rem;
+        height: 2rem;
       }
     }
     .header-actions {
