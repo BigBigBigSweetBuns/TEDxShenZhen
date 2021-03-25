@@ -7,7 +7,7 @@
 
 <script>
 // @ is an alias to /src
-import ArticleMin from "@/components/ArticleMin.vue";
+import ArticleMin from "@/components/Article/ArticleMin.vue";
 import ListingSection from "@/components/ListingSection/ListingSection.vue";
 export default {
   name: "Home",
