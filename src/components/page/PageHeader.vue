@@ -1,13 +1,10 @@
 <template>
   <div class="page-header">
-    <div class="container">
+    <b-container>
       <div class="site-branding">
         <div class="site-title">
           <router-link to="/">
-            <img
-              :src="'logo-white.jpg?Expires=1616670468&OSSAccessKeyId=TMP.3KfTEV8UvBdxvLn9s5bTbGxtGnn6uaoPqhV3v7hVBfGbtDBuBGp231p7PxobHAQnZccjnGD5Y6W8FLYzraY7dqEQav45Lm&Signature=EUwnBg96Vk1z43A2roRRxPWk1KU%3D&versionId=CAEQHRiBgMDym7WjwxciIGQzYjYwZDhmNWMyYzQ2ZWU4OGQxNjMxNGNiNzZlODNl&response-content-type=application%2Foctet-stream' | imageBaseURL"
-              alt=""
-              srcset=""
+            <img :src="logoSrc | imageBaseURL" alt="" srcset=""
           /></router-link>
         </div>
         <div class="header-actions">
@@ -31,7 +28,7 @@
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-navbar>
-    </div>
+    </b-container>
   </div>
 </template>
 
@@ -42,6 +39,8 @@ export default {
   data: function () {
     return {
       navbar: navbarData,
+      logoSrc:
+        "logo-white.jpg?versionId=CAEQHRiBgMDym7WjwxciIGQzYjYwZDhmNWMyYzQ2ZWU4OGQxNjMxNGNiNzZlODNl",
     };
   },
 };
