@@ -1,19 +1,27 @@
 <template>
-  <div class="listing-section">
+  <b-container class="listing-section">
     <h2>{{ header }}</h2>
-    <div class="row">
-      <div class="col-md-4" v-for="(item, index) in block" :key="index">
+    <b-row>
+      <b-col
+        cols="12"
+        sm="6"
+        md="6"
+        v-for="(item, index) in block"
+        :key="index"
+      >
         <router-link :to="item.key">
           <img :src="item.imgSrc" alt="" srcset="" />
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.introduction }}</p>
         </router-link>
-      </div>
-    </div>
-    <router-link :to="toKey">
-      see More <i class="icon icon-right"></i>
+        <router-link :to="item.key">
+          <h4>{{ item.title }}</h4>
+        </router-link>
+        <p>{{ item.introduction }}</p>
+      </b-col>
+    </b-row>
+    <router-link :to="toKey" class="see-more">
+      see More <i class="icon icon-right">></i>
     </router-link>
-  </div>
+  </b-container>
 </template>
 
 <script>
@@ -49,6 +57,28 @@ export default {
             key: "/",
             imgSrc: "#",
           },
+          {
+            title: "TEDxSydney 2020",
+            introduction:
+              "What is TEDxSydney? TEDxSydney is Australia's leading ideas forum and a gold standard event on the global TEDx stage. 2019 event highlights HERE",
+            key: "/",
+            imgSrc: "#",
+          },
+          {
+            title:
+              "TEDxSydney Conversations: Evolving the sustainability movement in Australia",
+            introduction:
+              "Tuesday 13 October 2020 3:30 pm—4:15 pm AEDT Facebook live event Across the world today we are simultaneously facing a health crisis, an economic crisis, an inequality crisis and a climate crisis....",
+            key: "/",
+            imgSrc: "#",
+          },
+          {
+            title: "TEDxSydney 2020",
+            introduction:
+              "What is TEDxSydney? TEDxSydney is Australia's leading ideas forum and a gold standard event on the global TEDx stage. 2019 event highlights HERE",
+            key: "/",
+            imgSrc: "#",
+          },
         ];
       },
     },
@@ -56,14 +86,55 @@ export default {
   data: function () {
     return {
       // header: "",
-      // block: [
-      //   { title: "", introduction: "", key: "/", imgSrc: "#" },
-      //   { title: "", introduction: "", key: "/", imgSrc: "#" },
-      // ],
+      // block: block,
     };
   },
+  computed: {},
 };
 </script>
 
 <style scoped lang="scss">
+@import "@/assets/variable";
+.listing-section {
+  position: relative;
+  > h2 {
+    color: $color-gray;
+    line-height: 1;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  .row {
+    > div {
+      margin-bottom: 2rem;
+    }
+  }
+  a {
+    display: block;
+    color: $color-semi;
+    text-decoration: none;
+    margin-bottom: 1rem;
+    &:hover {
+      color: $tedx-red;
+    }
+  }
+  img {
+    display: block;
+    max-width: 100%;
+    min-height: 5rem;
+    background-color: $color-light;
+    height: auto;
+  }
+  p {
+    line-height: 1.2;
+  }
+
+  .see-more {
+    color: $tedx-red;
+    font-size: $font-size-content;
+    line-height: 1;
+    position: absolute;
+    right: 0;
+    top: (2rem - $font-size-content) / 2;
+  }
+}
 </style>
