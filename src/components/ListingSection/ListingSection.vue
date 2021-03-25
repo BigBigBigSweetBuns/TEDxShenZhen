@@ -3,14 +3,14 @@
     <h2>{{ header }}</h2>
     <div class="row">
       <div class="col-md-4" v-for="(item, index) in block" :key="index">
-        <router-link to="item.key">
+        <router-link :to="item.key">
           <img :src="item.imgSrc" alt="" srcset="" />
           <h3>{{ item.title }}</h3>
           <p>{{ item.introduction }}</p>
         </router-link>
       </div>
     </div>
-    <router-link to="key">
+    <router-link :to="toKey">
       see More <i class="icon icon-right"></i>
     </router-link>
   </div>
@@ -25,7 +25,7 @@ export default {
       // required: true,
       default: "listing-section",
     },
-    key: {
+    toKey: {
       type: String,
       default: "/",
     },
