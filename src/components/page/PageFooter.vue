@@ -1,31 +1,33 @@
 <template>
   <div class="page-footer">
     <div class="container">
-      <div class="footer-newsletter-form">
-        <div class="form-inline">
-          <b-form>
-            <label for="newsletter-email">Subscribe To Our Newsletter</label>
-            <b-form-input
-              id="newsletter-email"
-              class="mb-2 mr-sm-2 mb-sm-0"
-              placeholder="Email Address"
-            ></b-form-input>
-            <b-button
-              type="submit"
-              class="btn btn-outline-dark"
-              variant="defualt"
-              >GO</b-button
-            >
-          </b-form>
-        </div>
-        <ul class="media-widgets">
-          <li v-for="num in 5" :key="num">
-            <a href="#"><i class="icon icon-">icon</i></a>
-          </li>
-        </ul>
-      </div>
+      <b-row class="footer-newsletter-form">
+        <b-col cols="12" md="8" class="form-inline">
+          <label class="col-12 col-md-6" for="newsletter-email"
+            >Subscribe To Our Newsletter</label
+          >
+          <b-form-input
+            id="newsletter-email"
+            class="col-12 col-md-4 mb-2 mr-sm-2 mb-sm-0"
+            placeholder="Email Address"
+          ></b-form-input>
+          <b-button
+            type="submit"
+            class="btn btn-outline-dark col-12 col-md-1"
+            variant="defualt"
+            >GO</b-button
+          >
+        </b-col>
+        <b-col cols="12" md="4">
+          <ul class="media-widgets">
+            <li v-for="num in 5" :key="num">
+              <a href="#"><i class="icon icon-">icon</i></a>
+            </li>
+          </ul>
+        </b-col>
+      </b-row>
       <b-row class="footer-main-menu">
-        <div class="col-md-4" v-for="(item, index) in navbar" :key="index">
+        <b-col cols="12" sm="4" v-for="(item, index) in navbar" :key="index">
           <div class="footer-single-menu">
             <router-link to="item.key">{{ item.name }}</router-link>
             <ul>
@@ -34,7 +36,7 @@
               </li>
             </ul>
           </div>
-        </div>
+        </b-col>
       </b-row>
       <div class="site-info">
         <span>
@@ -70,6 +72,10 @@ export default {
 @mixin margin-border {
   border-bottom: 2px solid $color-border;
   margin-bottom: 1.5rem;
+}
+ul,
+li {
+  padding: 0;
 }
 .page-footer {
   border-top: 2px solid $tedx-red;
@@ -118,10 +124,6 @@ export default {
         color: $color-semi;
         line-height: 1.7;
         font-weight: 500;
-      }
-      ul,
-      li {
-        padding: 0;
       }
     }
   }
