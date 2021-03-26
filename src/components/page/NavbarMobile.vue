@@ -2,13 +2,13 @@
   <div class="navbar-mobile">
     <div class="navbar-brand">NavBar</div>
     <div class="navbar-toggle" v-on:click="show()">
-      <div class="icon icon-">icon</div>
+      <div class="icon icon-">menu</div>
     </div>
-    <div class="navbar-collapse" v-show="expanded">
+    <div class="navbar-collapse" :style="expanded ? { left: 0 + 'vw' } : ''">
       <ul class="main-menu">
         <li
           class="menu-item"
-          :class="index == acitveItem ? 'active' : ''"
+          :class="index == activeItem ? 'active' : ''"
           v-for="(item, index) in menu"
           :key="index"
         >
@@ -19,7 +19,18 @@
           <ul
             class="sub-menu"
             v-if="item.dropDown"
-            v-show="index == acitveItem"
+            :style="
+              index == activeItem
+                ? {
+                    height:
+                      'calc(' +
+                      item.dropDown.length * 3 +
+                      'rem + ' +
+                      item.dropDown.length +
+                      'px )',
+                  }
+                : ''
+            "
           >
             <li
               class="sub-menu-item menu-item"
@@ -31,11 +42,6 @@
               </p>
             </li>
           </ul>
-        </li>
-        <li class="menu-item">
-          <p>
-            <a href="">item2</a>
-          </p>
         </li>
       </ul>
     </div>
@@ -50,7 +56,7 @@ export default {
     return {
       expanded: false, //默认隐藏
       menu: navbarData,
-      acitveItem: -1,
+      activeItem: -1,
     };
   },
   methods: {
@@ -59,8 +65,8 @@ export default {
       console.log(this.expanded);
     },
     toggle(i) {
-      this.acitveItem = i == this.acitveItem ? -1 : i;
-      console.log(this.acitveItem);
+      this.activeItem = i == this.activeItem ? -1 : i;
+      console.log(this.activeItem);
     },
     submenu_collapse() {},
   },
@@ -70,6 +76,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/variable.scss";
 $border: 1px solid $color-light;
+
 ul,
 li {
   margin: 0;
@@ -79,7 +86,7 @@ a {
   display: block;
   width: 100%;
   font-size: $font-size-content;
-  color: $color-semi;
+  color: $color-black;
   line-height: 1;
   padding: 1rem 1rem;
   &:hover {
@@ -104,18 +111,20 @@ a {
     border-right: $border;
     overflow-y: auto;
     position: fixed;
-    left: 0;
+    left: -75vw;
     top: 0;
     z-index: 999;
+    transition: left 1s;
     .main-menu {
       .menu-item {
         font-size: $font-size-content;
-        line-height: 1.5;
         p {
           display: flex;
           width: 100%;
+          line-height: 1;
           border-bottom: $border;
           margin: 0;
+          box-sizing: border-box;
           i {
             line-height: $font-size-content + 2rem;
             width: $font-size-content + 2rem;
@@ -127,9 +136,9 @@ a {
       }
     }
     .sub-menu {
-      height: auto;
+      height: 0;
       overflow: hidden;
-      transition: height 1s;
+      transition: height .6s;
       a {
         color: $color-gray;
       }
