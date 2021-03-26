@@ -1,11 +1,10 @@
 <template>
-  <b-container class="article">
+  <div class="article">
     <header>
       <h1>{{ article.header }}</h1>
     </header>
-    <div class="content" v-html="article.contents">
-    </div>
-  </b-container>
+    <div class="content" v-html="article.contents"></div>
+  </div>
 </template>
 
 <script>

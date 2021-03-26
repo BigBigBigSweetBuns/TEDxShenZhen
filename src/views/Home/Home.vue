@@ -1,8 +1,10 @@
 <template>
   <div class="home">
-    <article-min />
-    <grid-divider></grid-divider>
-    <listing-section></listing-section>
+    <b-container>
+      <article-min />
+      <grid-divider></grid-divider>
+      <listing-section></listing-section>
+    </b-container>
   </div>
 </template>
 
@@ -10,7 +12,7 @@
 // @ is an alias to /src
 import ArticleMin from "@/components/Article/ArticleMin.vue";
 import ListingSection from "@/components/ListingSection/ListingSection.vue";
-import GridDivider from '../../components/GridDivider/GridDivider.vue';
+import GridDivider from "../../components/GridDivider/GridDivider.vue";
 export default {
   name: "Home",
   components: {

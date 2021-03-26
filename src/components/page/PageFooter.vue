@@ -101,7 +101,6 @@ export default {
 }
 @mixin margin-border {
   border-bottom: 2px solid $color-border;
-  // margin-bottom: 1.5rem;
 }
 ul,
 li {

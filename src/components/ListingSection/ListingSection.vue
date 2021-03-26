@@ -1,5 +1,5 @@
 <template>
-  <b-container class="listing-section">
+  <div class="listing-section">
     <h2>{{ header }}</h2>
     <b-row>
       <b-col
@@ -21,7 +21,7 @@
     <router-link :to="toKey" class="see-more">
       see More <i class="iconfont icon-right-bold"></i>
     </router-link>
-  </b-container>
+  </div>
 </template>
 
 <script>
