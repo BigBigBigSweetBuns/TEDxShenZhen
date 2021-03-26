@@ -8,7 +8,7 @@
       </div>
       <div class="header-actions">
         <div class="navbar-toggle" v-on:click="show()">
-          <i class="icon icon-">menu</i>
+          <i class="iconfont icon-menu-hamburger"></i>
         </div>
       </div>
     </b-container>
@@ -20,10 +20,14 @@
           v-for="(item, index) in menu"
           :key="index"
         >
-          <p>
+          <div>
             <a :href="item.key">{{ item.name }}</a>
-            <i v-if="item.dropDown" v-on:click="toggle(index)">></i>
-          </p>
+            <i
+              v-if="item.dropDown"
+              v-on:click="toggle(index)"
+              class="iconfont icon-right"
+            ></i>
+          </div>
           <ul
             class="sub-menu"
             v-if="item.dropDown"
@@ -45,9 +49,9 @@
               v-for="(subItem, i) in item.dropDown"
               :key="i"
             >
-              <p>
+              <div>
                 <a :href="subItem.key">{{ subItem.name }}</a>
-              </p>
+              </div>
             </li>
           </ul>
         </li>
@@ -98,7 +102,6 @@ a {
   font-size: $font-size-content;
   color: $color-black;
   line-height: 1;
-  padding: 1rem 1rem;
   &:hover {
     color: $tedx-red;
     text-decoration: none;
@@ -107,6 +110,9 @@ a {
 .active {
   a {
     color: $tedx-red;
+  }
+  i {
+    transform: rotate(90deg);
   }
 }
 .navbar-mobile {
@@ -120,18 +126,23 @@ a {
     .site-title {
       margin: 0.5rem 0;
       img {
-        height: 2rem;
+        height: 2.5rem;
       }
     }
     .header-actions {
       display: flex;
       .navbar-toggle {
-        background: $color-gray;
+        border: 1px solid $color-border;
+        :active {
+          background-color: $color-border;
+          color: $color-white;
+        }
         i {
-          line-height: 3rem;
-          text-align: center;
           display: block;
-          width: 3rem;
+          font-size: 1.5rem;
+          line-height: 2.5rem;
+          text-align: center;
+          width: 2.5rem;
         }
       }
     }
@@ -151,19 +162,26 @@ a {
     .main-menu {
       .menu-item {
         font-size: $font-size-content;
-        p {
+        > div {
           display: flex;
           width: 100%;
           line-height: 1;
           border-bottom: $border;
           margin: 0;
           box-sizing: border-box;
+          overflow: hidden;
+          a {
+            padding: 1rem;
+          }
+
           i {
-            line-height: $font-size-content + 2rem;
             width: $font-size-content + 2rem;
             height: $font-size-content + 2rem;
+            font-size: 1rem;
+            line-height: $font-size-content + 2rem;
             text-align: center;
-            float: right;
+            box-sizing: border-box;
+            transition: transform 0.6s;
           }
         }
       }
