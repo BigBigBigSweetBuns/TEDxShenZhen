@@ -57,6 +57,7 @@
         </li>
       </ul>
     </div>
+    <div class="barrier" v-show="expanded" v-on:click="show()"></div>
   </div>
 </template>
 
@@ -76,7 +77,6 @@ export default {
   methods: {
     show() {
       this.expanded = !this.expanded;
-      console.log(this.expanded);
     },
     toggle(i) {
       this.activeItem = i == this.activeItem ? -1 : i;
@@ -91,6 +91,15 @@ export default {
 @import "@/assets/variable.scss";
 $border: 1px solid $color-light;
 
+.barrier {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 500;
+}
 ul,
 li {
   margin: 0;
