@@ -2,31 +2,39 @@
   <div class="page-footer">
     <div class="container">
       <b-row class="footer-newsletter-form">
-        <b-col cols="12" md="8" class="form-inline">
-          <label class="col-12 col-md-6" for="newsletter-email"
-            >Subscribe To Our Newsletter</label
-          >
-          <b-form-input
-            id="newsletter-email"
-            class="col-12 col-md-4 mb-2 mr-sm-2 mb-sm-0"
-            placeholder="Email Address"
-          ></b-form-input>
-          <b-button
-            type="submit"
-            class="btn btn-outline-dark col-12 col-md-1"
-            variant="defualt"
-            >GO</b-button
-          >
-        </b-col>
-        <b-col cols="12" md="4">
-          <ul class="media-widgets">
-            <li v-for="num in 5" :key="num">
-              <a href="#"><i class="icon icon-">icon</i></a>
-            </li>
-          </ul>
-        </b-col>
+        <b-form>
+          <div class="form-inline">
+            <label class="" for="newsletter-email"
+              >Subscribe To Our Newsletter</label
+            >
+            <b-form-input
+              id="newsletter-email"
+              class=""
+              placeholder="Email Address"
+            ></b-form-input>
+            <b-button
+              type="submit"
+              class="btn btn-outline-dark"
+              variant="defualt"
+              >GO</b-button
+            >
+          </div>
+        </b-form>
+        <div class="media-widgets" v-if="is_mobilewidth">
+          <div class="li" v-for="(icon, index) in mediaIcons" :key="index">
+            <a :href="icon.href"><i class="iconfont" :class="icon.icon"></i></a>
+          </div>
+        </div>
       </b-row>
-      <b-row class="footer-main-menu">
+      <div class="media-widgets row" v-if="!is_mobilewidth">
+        <div class="li col-6" v-for="(icon, index) in mediaIcons" :key="index">
+          <a :href="icon.href"
+            ><i class="iconfont" :class="icon.icon"></i>{{ icon.name }}</a
+          >
+        </div>
+      </div>
+
+      <b-row class="footer-main-menu" v-if="is_mobilewidth">
         <b-col cols="12" sm="4" v-for="(item, index) in navbar" :key="index">
           <div class="footer-single-menu">
             <router-link to="item.key">{{ item.name }}</router-link>
@@ -58,7 +66,29 @@ export default {
   data: function () {
     return {
       navbar: navbarData,
+      mediaIcons: [
+        {
+          name: "bilibili",
+          icon: "icon-bilibili-fill",
+          href: "#",
+        },
+        {
+          name: "weibo",
+          icon: "icon-weibo",
+          href: "#",
+        },
+        {
+          name: "wechat",
+          icon: "icon-wechat",
+          href: "#",
+        },
+      ],
     };
+  },
+  computed: {
+    is_mobilewidth() {
+      return window.innerWidth >= 576;
+    },
   },
 };
 </script>
@@ -71,40 +101,75 @@ export default {
 }
 @mixin margin-border {
   border-bottom: 2px solid $color-border;
-  margin-bottom: 1.5rem;
+  // margin-bottom: 1.5rem;
 }
 ul,
 li {
   padding: 0;
 }
 .page-footer {
+  > .container {
+    > .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
   border-top: 2px solid $tedx-red;
   .footer-newsletter-form {
     display: flex;
+    justify-content: space-between;
     font-size: $font-size-content;
     color: $color-semi;
     @include padding;
     @include margin-border;
-    .form-inline {
+    form {
       width: 70%;
-      > form {
+
+      .form-inline {
         display: flex;
         width: 100%;
-        label {
-          max-width: 100%;
-          margin-right: 5%;
+        label,
+        input {
+          margin-right: 1rem;
+        }
+      }
+    }
+    @media (max-width: 576px) {
+      form {
+        width: 100%;
+        .form-inline {
+          .label {
+            width: 100%;
+            margin-right: 0;
+          }
+          .form-control {
+            width: calc(100% - 1rem - 50px);
+          }
         }
       }
     }
     .media-widgets {
-      display: flex;
-      align-items: center;
-      > li a {
-        display: block;
-        width: 1.6rem;
-        height: 1.6rem;
-        background-color: #eee;
-        margin-left: 1.6rem;
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .media-widgets {
+    display: flex;
+    align-items: center;
+    @include padding;
+    @include margin-border;
+
+    .li {
+      a {
+        color: $color-gray;
+        font-size: $font-size-content;
+        i {
+          position: relative;
+          top: 3px;
+          font-size: $font-size-head;
+          margin-right: 1rem;
+        }
       }
     }
   }
@@ -128,6 +193,7 @@ li {
     }
   }
   .site-info {
+    @include padding;
     color: $color-gray;
     font-size: $font-size-description;
     text-align: center;

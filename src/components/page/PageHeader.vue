@@ -8,7 +8,7 @@
           /></router-link>
         </div>
         <div class="header-actions">
-          <i class="icon icon-search">search</i>
+          <i class="iconfont icon-search"></i>
         </div>
       </div>
       <b-navbar>
@@ -62,8 +62,14 @@ export default {
       }
     }
     .header-actions {
+      height: 3rem;
       position: absolute;
-      right: 0;
+      right: 0.2rem;
+    }
+    i {
+      width: 3rem;
+      font-size: 1.5rem;
+      line-height: 3rem;
     }
   }
   .navbar {

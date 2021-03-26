@@ -19,7 +19,7 @@
       </b-col>
     </b-row>
     <router-link :to="toKey" class="see-more">
-      see More <i class="icon icon-right">></i>
+      see More <i class="iconfont icon-right-bold"></i>
     </router-link>
   </b-container>
 </template>
@@ -132,8 +132,9 @@ export default {
     color: $tedx-red;
     font-size: $font-size-content;
     line-height: 1;
+    font-weight: bold;
     position: absolute;
-    right: 0;
+    right: 15px;
     top: (2rem - $font-size-content) / 2;
   }
 }
