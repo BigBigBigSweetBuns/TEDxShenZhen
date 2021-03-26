@@ -1,9 +1,17 @@
 <template>
   <div class="navbar-mobile">
-    <div class="navbar-brand">NavBar</div>
-    <div class="navbar-toggle" v-on:click="show()">
-      <div class="icon icon-">menu</div>
-    </div>
+    <b-container fluid class="site-branding">
+      <div class="site-title">
+        <router-link to="/">
+          <img :src="logoSrc | imageBaseURL" alt="" srcset=""
+        /></router-link>
+      </div>
+      <div class="header-actions">
+        <div class="navbar-toggle" v-on:click="show()">
+          <i class="icon icon-">menu</i>
+        </div>
+      </div>
+    </b-container>
     <div class="navbar-collapse" :style="expanded ? { left: 0 + 'vw' } : ''">
       <ul class="main-menu">
         <li
@@ -57,6 +65,8 @@ export default {
       expanded: false, //默认隐藏
       menu: navbarData,
       activeItem: -1,
+      logoSrc:
+        "logo-white.jpg?versionId=CAEQHRiBgMDym7WjwxciIGQzYjYwZDhmNWMyYzQ2ZWU4OGQxNjMxNGNiNzZlODNl",
     };
   },
   methods: {
@@ -101,9 +111,32 @@ a {
 }
 .navbar-mobile {
   position: relative;
-  .navbar-toggle {
-    background: $color-gray;
+  .site-branding {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid $color-border;
+    position: relative;
+    .site-title {
+      margin: 0.5rem 0;
+      img {
+        height: 2rem;
+      }
+    }
+    .header-actions {
+      display: flex;
+      .navbar-toggle {
+        background: $color-gray;
+        i {
+          line-height: 3rem;
+          text-align: center;
+          display: block;
+          width: 3rem;
+        }
+      }
+    }
   }
+
   .navbar-collapse {
     width: 75vw;
     height: 100%;
@@ -138,7 +171,7 @@ a {
     .sub-menu {
       height: 0;
       overflow: hidden;
-      transition: height .6s;
+      transition: height 0.6s;
       a {
         color: $color-gray;
       }

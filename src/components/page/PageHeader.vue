@@ -11,8 +11,7 @@
           <i class="icon icon-search">search</i>
         </div>
       </div>
-      <navbar-mobile v-if="is_mobilewidth"></navbar-mobile>
-      <b-navbar v-else>
+      <b-navbar>
         <b-navbar-nav class="row container">
           <!-- Navbar dropdowns -->
           <b-nav-item-dropdown
@@ -35,22 +34,15 @@
 
 <script>
 import { navbarData } from "@/helpers/navbarData.js";
-import NavbarMobile from "./NavbarMobile.vue";
 export default {
   name: "PageHeader",
-  components: { NavbarMobile },
+  components: {},
   data: function () {
     return {
-      screenWidth: document.body.clientWidth,
       navbar: navbarData,
       logoSrc:
         "logo-white.jpg?versionId=CAEQHRiBgMDym7WjwxciIGQzYjYwZDhmNWMyYzQ2ZWU4OGQxNjMxNGNiNzZlODNl",
     };
-  },
-  computed: {
-    is_mobilewidth() {
-      return window.innerWidth <= 767;
-    },
   },
 };
 </script>
