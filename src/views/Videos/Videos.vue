@@ -1,30 +1,15 @@
 <template>
   <div class="videos">
     <b-container>
-      <b-row>
-        <b-col
-          cols="12"
-          sm="6"
-          md="4"
-          v-for="(videoData, index) in videos"
-          :key="index"
-        >
-          <card-default
-            :title="videoData.title"
-            :introduction="videoData.introduction"
-            :thumbnail="videoData.thumbnail"
-            :href="videoData.href"
-          ></card-default>
-        </b-col>
-      </b-row>
+      <cards-button :cardsList="videos"></cards-button>
     </b-container>
   </div>
 </template>
 
 <script>
-import CardDefault from "@/components/Card/CardDefault.vue";
+import CardsButton from "../../components/Card/CardsButton.vue";
 export default {
-  components: { CardDefault },
+  components: { CardsButton },
   name: "Videos",
   data: function () {
     return {
@@ -107,6 +92,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/variable.scss";
+
 .videos {
   margin-top: 1rem;
   margin-bottom: 1rem;

@@ -18,14 +18,17 @@ export default {
   props: {
     title: {
       type: String,
+      reuqired: true,
       default: "title",
     },
     introduction: {
       type: String,
+      reuqired: true,
       default: "introduction",
     },
     thumbnail: {
       type: Object,
+      reuqired: true,
       default: function () {
         return {
           alt: "image",
@@ -35,6 +38,7 @@ export default {
     },
     href: {
       type: String,
+      reuqired: true,
       default: "#",
     },
   },
