@@ -1,0 +1,76 @@
+<template>
+  <div class="card">
+    <router-link :to="href">
+      <img :src="thumbnail.src" :alt="thumbnail.alt" srcset="" />
+    </router-link>
+    <h4>
+      <router-link :to="href">
+        {{ title }}
+      </router-link>
+    </h4>
+    <p>{{ introduction }}</p>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "CardDefault",
+  props: {
+    title: {
+      type: String,
+      default: "title",
+    },
+    introduction: {
+      type: String,
+      default: "introduction",
+    },
+    thumbnail: {
+      type: Object,
+      default: function () {
+        return {
+          alt: "image",
+          src: "#",
+        };
+      },
+    },
+    href: {
+      type: String,
+      default: "#",
+    },
+  },
+  data: function () {
+    return {};
+  },
+};
+</script>
+
+<style scoped lang="scss">
+@import "@/assets/variable.scss";
+.card {
+  border: none;
+  border-radius: 0%;
+  a {
+    color: $color-semi;
+    display: block;
+    &:hover,
+    &:active {
+      color: $tedx-red;
+    }
+    h4 {
+      margin-bottom: 0.5rem;
+    }
+    img {
+      display: block;
+      width: 100%;
+      min-height: 5rem;
+      background-color: $color-light;
+      margin-bottom: 0.5rem;
+    }
+  }
+  p {
+    color: $color-gray;
+    font-size: $font-size-content;
+    line-height: 1.2;
+  }
+}
+</style>
