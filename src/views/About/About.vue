@@ -20,11 +20,30 @@ export default {
       aboutData: aboutData,
     };
   },
+  created: function () {
+    console.log(1);
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/variable.scss";
 .about {
   margin-bottom: 2rem;
+  ::v-deep .content {
+    h4 {
+      position: relative;
+      &:before {
+        content: "";
+        display: block;
+        height: $font-size-head;
+        width: 3px;
+        background-color: $tedx-red;
+        position: absolute;
+        top: 0;
+        left: -1rem;
+      }
+    }
+  }
 }
 </style>
