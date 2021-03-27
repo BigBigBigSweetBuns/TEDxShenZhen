@@ -37,10 +37,10 @@
       <b-row class="footer-main-menu" v-if="is_mobilewidth">
         <b-col cols="12" sm="4" v-for="(item, index) in navbar" :key="index">
           <div class="footer-single-menu">
-            <router-link to="item.key">{{ item.name }}</router-link>
+            <router-link :to="item.key">{{ item.name }}</router-link>
             <ul>
               <li v-for="(drop, i) in item.dropDown" :key="i">
-                <router-link to="drop.key">{{ drop.name }}</router-link>
+                <router-link :to="drop.key">{{ drop.name }}</router-link>
               </li>
             </ul>
           </div>
