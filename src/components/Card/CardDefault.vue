@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <router-link :to="href">
-      <img :src="thumbnail.src" :alt="thumbnail.alt" srcset="" />
+      <img v-lazy="thumbnail.src" :alt="thumbnail.alt" srcset="" />
     </router-link>
     <h4>
       <router-link :to="href">
