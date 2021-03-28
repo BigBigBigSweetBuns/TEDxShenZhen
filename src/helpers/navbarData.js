@@ -1,98 +1,98 @@
 var navbarData = [
     {
         name: "EVENTS",
-        key: "/Events",
+        path: "/Events",
         dropDown: [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
-                key: "#"
+                path: "#"
             },
             {
                 name: "Previous Events",
                 sub: "Full Event Archive from 2010 - Present",
-                key: "#"
+                path: "#"
             },
         ],
     },
     {
         name: "VIDEOS",
-        key: "/Videos",
+        path: "/Videos",
         dropDown: [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney We welcome the brightest and the bravest brands to engage with our community",
-                key: "#"
+                path: "#"
             },
             {
                 name: "Previous Events",
                 sub: "Full Event Archive from 2010 - Present",
-                key: "#"
+                path: "#"
             },
         ],
     },
     {
         name: "SPEAKERS",
-        key: "/Speakers",
+        path: "/Speakers",
         dropDown: [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney We welcome the brightest and the bravest brands to engage with our community We welcome the brightest and the bravest brands to engage with our community",
-                key: "#"
+                path: "#"
             },
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney We welcome the brightest and the bravest brands to engage with our community We welcome the brightest and the bravest brands to engage with our community",
-                key: "#"
+                path: "#"
             },
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney We welcome the brightest and the bravest brands to engage with our community We welcome the brightest and the bravest brands to engage with our community",
-                key: "#"
+                path: "#"
             },
         ],
     },
     {
         name: "NEWS & IDEAS",
-        key: "",
+        path: "/All-News",
         dropDown: [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
-                key: "#"
+                path: "#"
             },
         ],
     },
     {
         name: "PARTNERS",
-        key: "/PARTNERS",
+        path: "/PARTNERS",
         dropDown: [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
-                key: "#"
+                path: "#"
             },
         ],
     },
     {
         name: "COMMUNITY",
-        key: "/COMMUNITY",
+        path: "/COMMUNITY",
         dropDown: [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
-                key: "#"
+                path: "#"
             },
         ],
     },
     {
         name: "ABOUT",
-        key: "/About",
+        path: "/About",
         dropDown: [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
-                key: "#"
+                path: "#"
             },
         ],
     },
