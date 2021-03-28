@@ -23,8 +23,12 @@ export default {
       return window.innerWidth <= 767;
     },
   },
+  created: function () {},
 };
 </script>
 <style lang="scss" >
 @import "./assets/main.scss";
+#app {
+  width: 100vw;
+}
 </style>
