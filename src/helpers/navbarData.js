@@ -6,10 +6,12 @@ var navbarData = [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
+                key: "#"
             },
             {
                 name: "Previous Events",
                 sub: "Full Event Archive from 2010 - Present",
+                key: "#"
             },
         ],
     },
@@ -19,11 +21,13 @@ var navbarData = [
         dropDown: [
             {
                 name: "Upcoming Events",
-                sub: "Get to know what's up next at TedxSydney",
+                sub: "Get to know what's up next at TedxSydney We welcome the brightest and the bravest brands to engage with our community",
+                key: "#"
             },
             {
                 name: "Previous Events",
                 sub: "Full Event Archive from 2010 - Present",
+                key: "#"
             },
         ],
     },
@@ -33,7 +37,18 @@ var navbarData = [
         dropDown: [
             {
                 name: "Upcoming Events",
-                sub: "Get to know what's up next at TedxSydney",
+                sub: "Get to know what's up next at TedxSydney We welcome the brightest and the bravest brands to engage with our community We welcome the brightest and the bravest brands to engage with our community",
+                key: "#"
+            },
+            {
+                name: "Upcoming Events",
+                sub: "Get to know what's up next at TedxSydney We welcome the brightest and the bravest brands to engage with our community We welcome the brightest and the bravest brands to engage with our community",
+                key: "#"
+            },
+            {
+                name: "Upcoming Events",
+                sub: "Get to know what's up next at TedxSydney We welcome the brightest and the bravest brands to engage with our community We welcome the brightest and the bravest brands to engage with our community",
+                key: "#"
             },
         ],
     },
@@ -44,6 +59,7 @@ var navbarData = [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
+                key: "#"
             },
         ],
     },
@@ -54,6 +70,7 @@ var navbarData = [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
+                key: "#"
             },
         ],
     },
@@ -64,6 +81,7 @@ var navbarData = [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
+                key: "#"
             },
         ],
     },
@@ -74,6 +92,7 @@ var navbarData = [
             {
                 name: "Upcoming Events",
                 sub: "Get to know what's up next at TedxSydney",
+                key: "#"
             },
         ],
     },

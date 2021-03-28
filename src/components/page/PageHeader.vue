@@ -11,23 +11,20 @@
           <i class="iconfont icon-search"></i>
         </div>
       </div>
-      <b-navbar>
-        <b-navbar-nav class="row container">
-          <!-- Navbar dropdowns -->
-          <b-nav-item-dropdown
-            :text="item.name"
-            right
-            v-for="(item, index) in navbar"
-            :key="index"
-          >
-            <b-dropdown-item
-              href="#"
-              v-for="(dorp, i) in item.dropDown"
-              :key="i"
-            ></b-dropdown-item>
-          </b-nav-item-dropdown>
-        </b-navbar-nav>
-      </b-navbar>
+      <ul class="navbar mainmenu">
+        <li v-for="(item, index) in navbar" :key="index">
+          <router-link :to="item">{{ item.name }}</router-link>
+          <ul class="submenu">
+            <li v-for="(dorp, i) in item.dropDown" :key="i">
+              <router-link :to="dorp.key"
+                >{{ dorp.name }}
+                <br />
+                <span>{{ dorp.sub }}</span>
+              </router-link>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </b-container>
   </div>
 </template>
@@ -49,6 +46,17 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/assets/variable.scss";
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+a {
+  display: block;
+  font-size: $font-size-content;
+  color: $color-semi;
+  line-height: 1;
+}
 .page-header {
   border-top: 2px solid $tedx-red;
   .site-branding {
@@ -72,8 +80,48 @@ export default {
       line-height: 3rem;
     }
   }
-  .navbar {
+  .mainmenu {
     padding: 0rem 1rem;
+    z-index: 999;
+    > li {
+      padding: 0.5rem 0;
+      .submenu {
+        display: flex;
+        width: 100%;
+        max-height: 0;
+        background-color: $color-white;
+        box-sizing: border-box;
+        overflow: hidden;
+        position: absolute;
+        top: 2rem;
+        left: 0;
+        z-index: 500;
+        transition: max-height 1s ease-in;
+        a {
+          color: $color-semi;
+          font-size: $font-size-content;
+          margin: 1.5rem 1rem;
+          span {
+            color: $color-gray;
+            font-size: $font-size-secondary;
+          }
+          &:hover,
+          &:active {
+            color: $tedx-red;
+          }
+        }
+      }
+      &:hover {
+        > a {
+          color: $tedx-red;
+        }
+        .submenu {
+          z-index: 600;
+          max-height: 10rem;
+          border-bottom: 1px solid $tedx-red;
+        }
+      }
+    }
   }
 }
 </style>
