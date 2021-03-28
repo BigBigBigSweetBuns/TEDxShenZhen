@@ -13,10 +13,14 @@
       </div>
       <ul class="navbar mainmenu">
         <li v-for="(item, index) in navbar" :key="index">
-          <router-link :to="item">{{ item.name }}</router-link>
+          <router-link
+            :to="item.path"
+            :class="item.path == activeNavbar ? 'active' : ''"
+            >{{ item.name }}</router-link
+          >
           <ul class="submenu">
             <li v-for="(dorp, i) in item.dropDown" :key="i">
-              <router-link :to="dorp.key"
+              <router-link :to="dorp.path"
                 >{{ dorp.name }}
                 <br />
                 <span>{{ dorp.sub }}</span>
@@ -41,6 +45,11 @@ export default {
         "logo-white.jpg?versionId=CAEQHRiBgMDym7WjwxciIGQzYjYwZDhmNWMyYzQ2ZWU4OGQxNjMxNGNiNzZlODNl",
     };
   },
+  computed: {
+    activeNavbar: function () {
+      return this.$route.path;
+    },
+  },
 };
 </script>
 
@@ -56,6 +65,9 @@ a {
   font-size: $font-size-content;
   color: $color-semi;
   line-height: 1;
+}
+.active {
+  color: $tedx-red;
 }
 .page-header {
   border-top: 2px solid $tedx-red;

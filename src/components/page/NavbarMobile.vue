@@ -21,7 +21,7 @@
           :key="index"
         >
           <div>
-            <a :href="item.key">{{ item.name }}</a>
+            <router-link :to="item.path">{{ item.name }}</router-link>
             <i
               v-if="item.dropDown"
               v-on:click="toggle(index)"
@@ -50,7 +50,7 @@
               :key="i"
             >
               <div>
-                <a :href="subItem.key">{{ subItem.name }}</a>
+                <a :href="subItem.path">{{ subItem.name }}</a>
               </div>
             </li>
           </ul>
@@ -74,15 +74,26 @@ export default {
         "logo-white.jpg?versionId=CAEQHRiBgMDym7WjwxciIGQzYjYwZDhmNWMyYzQ2ZWU4OGQxNjMxNGNiNzZlODNl",
     };
   },
+  computed: {},
   methods: {
+    init_ActiveItem() {
+      let path = this.$route.path;
+      this.menu.forEach((e, i) => {
+        if (e.path == path) {
+          this.activeItem = i;
+        }
+      });
+    },
     show() {
       this.expanded = !this.expanded;
     },
     toggle(i) {
       this.activeItem = i == this.activeItem ? -1 : i;
-      console.log(this.activeItem);
     },
     submenu_collapse() {},
+  },
+  created: function () {
+    this.init_ActiveItem();
   },
 };
 </script>
