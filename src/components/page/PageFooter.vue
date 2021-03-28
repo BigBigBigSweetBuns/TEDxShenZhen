@@ -28,7 +28,7 @@
       </b-row>
       <div class="media-widgets row" v-if="!is_mobilewidth">
         <div class="li col-6" v-for="(icon, index) in mediaIcons" :key="index">
-          <a :href="icon.href"
+          <a :href="icon.href" target="_blank"
             ><i class="iconfont" :class="icon.icon"></i>{{ icon.name }}</a
           >
         </div>
@@ -70,17 +70,17 @@ export default {
         {
           name: "bilibili",
           icon: "icon-bilibili-fill",
-          href: "#",
+          href: "https://b23.tv/ctoCzH",
         },
         {
           name: "weibo",
           icon: "icon-weibo",
-          href: "#",
+          href: "https://weibo.com/u/3173721460",
         },
         {
           name: "wechat",
           icon: "icon-wechat",
-          href: "#",
+          href: "https://mp.weixin.qq.com/s/bV5mjH4eqTRfWO1bZtVUOw",
         },
       ],
     };
