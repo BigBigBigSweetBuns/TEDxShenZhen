@@ -13,7 +13,7 @@
         description="将在两个工作日内完成"
         label-for="input-horizontal"
       >
-        <b-form-input id="input-email" type="email"></b-form-input>
+        <b-form-input id="input-email" type="email" placeholder></b-form-input>
       </b-form-group>
 
       <b-button
@@ -55,6 +55,7 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 500;
 }
 #submit {
   display: block;
@@ -62,5 +63,8 @@ export default {
 }
 .unsubscription {
   margin: 1rem 0;
+  h3 {
+    margin: 2rem 0;
+  }
 }
 </style>

@@ -60,6 +60,20 @@ pc 使用 bootsrap 的 container 和 col 布局。
 
 
 
+#### 添加新文章
+
+采用markdown编辑器进行编辑
+
+path : /editMD
+
+
+
+#### 取消邮件订阅服务
+
+请求将表单内的数据发送至服务器。判断返回值，确认是否提交成功。
+
+
+
 #### Page-header 模块
 
 页面顶部内容：包含导航条、logo。
