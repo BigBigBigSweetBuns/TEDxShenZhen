@@ -1,12 +1,15 @@
 <template>
   <div class="edit-markdown">
-    <div>
-      <b-modal id="modal-center" centered title="复制成功" hide-footer>
-        <b-button class="mt-3" block @click="$bvModal.hide('modal-center')"
-          >Close Me</b-button
-        >
-      </b-modal>
-    </div>
+    <transition>
+      <b-alert
+        :show="dismissCountDown"
+        variant="primary"
+        @dismissed="dismissCountDown = 0"
+        @dismiss-count-down="countDownChanged"
+      >
+        {{ alertText }}
+      </b-alert>
+    </transition>
     <b-container>
       <h2>markdown 编辑</h2>
       <div id="editor">
@@ -14,17 +17,25 @@
         <div v-html="compiledMarkdown"></div>
       </div>
       <div class="copyString">
-        <h5>转化成单行字符串</h5>
+        <b-input-group class="mt-3">
+          <b-form-input
+            id="foo"
+            placeholder="转化成单行字符串"
+            :value="input"
+          ></b-form-input>
+          <b-input-group-append>
+            <b-button
+              class="clipboard"
+              :data-clipboard-text="input"
+              v-b-modal.modal-center
+              >复制</b-button
+            >
+          </b-input-group-append>
+        </b-input-group>
         <!-- Target -->
-        <input id="foo" :value="input" />
 
+        <!-- <input id="foo" :value="input" /> -->
         <!-- Trigger -->
-        <b-button
-          class="clipboard"
-          :data-clipboard-text="input"
-          v-b-modal.modal-center
-          >copy</b-button
-        >
         <!-- <button class="btn clipboard" :data-clipboard-text="input">copy</button> -->
         <!-- <p class="copy">{{ input }}</p>
         <button @click="copyLink()">copy</button> -->
@@ -41,7 +52,12 @@ export default {
   name: "EditMarkdown",
   data: function () {
     return {
-      input: "# hello",
+      input: "",
+
+      // alert
+      dismissCountDown: 0,
+      dismissSecs: 1,
+      alertText: "复制失败",
     };
   },
   computed: {
@@ -54,21 +70,23 @@ export default {
       console.log(e.target.value);
       this.input = e.target.value;
     }, 300),
-    // copyLink() {
-    //   let clipboard = new ClipboardJS(".btn");
-    //   clipboard.destroy();
-    // },
+    // alert
+    countDownChanged(dismissCountDown) {
+      this.dismissCountDown = dismissCountDown;
+    },
+    showAlert() {
+      this.dismissCountDown = this.dismissSecs;
+    },
   },
   mounted: function () {
     const btnCopy = new Clipboard(".clipboard");
-    btnCopy.on("success", (e) => {
-      console.info("Action:", e.action);
-      console.info("Text:", e.text);
-      console.info("Trigger:", e.trigger);
+    btnCopy.on("success", () => {
+      this.showAlert();
+      this.alertText = "复制成功";
     });
-    btnCopy.on("error", (e) => {
-      console.error("Action:", e.action);
-      console.error("Trigger:", e.trigger);
+    btnCopy.on("error", () => {
+      this.showAlert();
+      this.alertText = "复制失败";
     });
   },
 };
@@ -76,6 +94,13 @@ export default {
 
 <style scoped lang="scss">
 @import "@/assets/variable.scss";
+
+.alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .edit-markdown {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -110,6 +135,9 @@ export default {
     background-color: #f6f6f6;
     font-size: 14px;
     font-family: "Monaco", courier, monospace;
+    padding: 20px;
+  }
+  textarea + div {
     padding: 20px;
   }
 
