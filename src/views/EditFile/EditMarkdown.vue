@@ -131,6 +131,7 @@ export default {
     padding: 20px;
   }
   textarea + div {
+    overflow-y: auto;
     padding: 20px;
   }
 
