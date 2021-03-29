@@ -52,6 +52,10 @@ const routes = [
     path: '/EditMD',
     name: 'EditMarkdown',
     component: () => import(/* webpackChunkName: "All-News" */ '../views/EditFile/EditMarkdown.vue'),
+  }, {
+    path: '/newsletter/unsubscription',
+    name: 'unsubscription',
+    component: () => import(/* webpackChunkName: "All-News" */ '../views/Unsubscription/Unsubscription.vue'),
   }
 
 ]
