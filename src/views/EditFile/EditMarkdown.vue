@@ -32,13 +32,6 @@
             >
           </b-input-group-append>
         </b-input-group>
-        <!-- Target -->
-
-        <!-- <input id="foo" :value="input" /> -->
-        <!-- Trigger -->
-        <!-- <button class="btn clipboard" :data-clipboard-text="input">copy</button> -->
-        <!-- <p class="copy">{{ input }}</p>
-        <button @click="copyLink()">copy</button> -->
       </div>
     </b-container>
   </div>
