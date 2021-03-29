@@ -48,7 +48,12 @@ const routes = [
     path: '/about/:id',
     name: 'About',
     component: () => import(/* webpackChunkName: "All-News" */ '../views/News/News.vue'),
+  }, {
+    path: '/EditMD',
+    name: 'EditMarkdown',
+    component: () => import(/* webpackChunkName: "All-News" */ '../views/EditFile/EditMarkdown.vue'),
   }
+
 ]
 
 const router = new VueRouter({
