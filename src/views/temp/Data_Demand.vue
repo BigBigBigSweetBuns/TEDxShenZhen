@@ -1,5 +1,5 @@
 <template>
-  <div class="data-demend">
+  <div class="data-demand">
     <b-container>
       <!-- <div id="markdown" v-html="compiledMarkdown"></div> -->
       <iframe
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: "Data_Demend",
+  name: "Data_Demand",
   data() {
     return {
       mdHeight: 100,
@@ -48,7 +48,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.data-demend {
+.data-demand {
   iframe {
     height: auto;
     max-height: 1000vh;

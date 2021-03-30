@@ -57,9 +57,9 @@ const routes = [
     name: 'unsubscription',
     component: () => import(/* webpackChunkName: "tool" */ '../views/Unsubscription/Unsubscription.vue'),
   }, { // temp 
-    path: '/data_demend',
-    name: 'data_demend',
-    component: () => import(/* webpackChunkName: "temp" */ '../views/temp/Data_Demend.vue'),
+    path: '/data_demand',
+    name: 'data_demand',
+    component: () => import(/* webpackChunkName: "temp" */ '../views/temp/Data_Demand.vue'),
   }
 
 ]
