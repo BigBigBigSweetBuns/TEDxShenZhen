@@ -78,18 +78,18 @@ a {
     .site-title {
       margin: 0.5rem 0;
       img {
-        height: 2rem;
+        height: 3rem;
       }
     }
     .header-actions {
       height: 3rem;
       position: absolute;
-      right: 0.2rem;
+      right: 0.5rem;
     }
     i {
       width: 3rem;
       font-size: 1.5rem;
-      line-height: 3rem;
+      line-height: 4rem;
     }
   }
   .mainmenu {
