@@ -13,11 +13,15 @@ const routes = [
     name: 'Events',
     component: () => import(/* webpackChunkName: "Events" */ '../views/Events/Events.vue')
   }, {
+    path: '/events/:path',
+    name: 'Events',
+    component: () => import(/* webpackChunkName: "All-News" */ '../views/News/News.vue')
+  }, {
     path: '/videos',
     name: 'Videos',
     component: () => import(/* webpackChunkName: "Videos" */ '../views/Videos/Videos.vue')
   }, {
-    path: '/videos/:id',
+    path: '/videos/:path',
     name: 'Videos',
     component: () => import(/* webpackChunkName: "Videos" */ '../views/Videos/VideoDefault.vue')
   }, {
@@ -29,7 +33,7 @@ const routes = [
     name: 'All-News',
     component: () => import(/* webpackChunkName: "All-News" */ '../views/News/All-News.vue')
   }, {
-    path: '/news/:name',
+    path: '/news/:path',
     name: 'News',
     component: () => import(/* webpackChunkName: "All-News" */ '../views/News/News.vue')
   }, {
