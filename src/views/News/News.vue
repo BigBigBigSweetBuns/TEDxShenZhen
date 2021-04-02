@@ -1,7 +1,6 @@
 <template>
   <div class="news">
     <iframe
-      v-if="!isType"
       :src="iframeSrc"
       ref="markdown"
       frameborder="0"
@@ -13,20 +12,20 @@
       width="100%"
       height="100%"
     ></iframe>
-    <article-default
+    <!-- <article-default
       v-else
       :banner="article.banner"
       :title="article.title"
       :contentHTML="article.contentHTML"
-    ></article-default>
+    ></article-default> -->
   </div>
 </template>
 
 <script>
-import ArticleDefault from "@/components/Article/ArticleDefault.vue";
+// import ArticleDefault from "@/components/Article/ArticleDefault.vue";
 export default {
   name: "news",
-  components: { ArticleDefault },
+  // components: { ArticleDefault },
   data: function () {
     return {
       mdHeight: 500,
