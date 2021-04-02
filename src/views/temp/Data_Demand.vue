@@ -1,9 +1,8 @@
 <template>
   <div class="data-demand">
     <b-container>
-      <!-- <div id="markdown" v-html="compiledMarkdown"></div> -->
       <iframe
-        src="/html/data_demend.html"
+        :src="iframeSrc"
         ref="markdown"
         frameborder="0"
         marginheight="0"
@@ -27,9 +26,9 @@ export default {
     };
   },
   computed: {
-    // compiledMarkdown: function () {
-    //   return marked(this.input, { sanitize: true });
-    // },
+    iframeSrc: function () {
+      return "/html/data_demend.html";
+    },
   },
   mounted() {
     let that = this;
@@ -39,9 +38,6 @@ export default {
       iframe.onload = function () {
         that.mdHeight = iframe.contentDocument.body.scrollHeight;
       };
-      //   console.log(that.$refs.markdown.contentWindow.document.body.scrollHeight);
-      // this.mdHeight = that.$refs.markdown.contentWindow.screen.height;
-      //   console.log(this.mdHeight);
     });
   },
 };
