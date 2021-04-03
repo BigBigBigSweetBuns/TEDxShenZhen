@@ -12,7 +12,7 @@
           :title="cardData.title"
           :introduction="cardData.introduction"
           :thumbnail="cardData.thumbnail"
-          :href="cardData.href"
+          :path="cardData.path"
         ></card-default>
       </b-col>
     </b-row>

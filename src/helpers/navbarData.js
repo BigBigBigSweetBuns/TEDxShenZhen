@@ -54,7 +54,7 @@ var navbarData = [
     },
     {
         name: "新闻",
-        path: "/All-News",
+        path: "/news",
         dropDown: [
             {
                 name: "Upcoming Events",

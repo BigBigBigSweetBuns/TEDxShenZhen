@@ -29,7 +29,7 @@ const routes = [
     name: 'Speakers',
     component: () => import(/* webpackChunkName: "Speakers" */ '../views/Speakers/Speakers.vue')
   }, {
-    path: '/all-news',
+    path: '/news',
     name: 'All-News',
     component: () => import(/* webpackChunkName: "All-News" */ '../views/News/All-News.vue')
   }, {

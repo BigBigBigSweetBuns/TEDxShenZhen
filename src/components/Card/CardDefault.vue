@@ -1,10 +1,10 @@
 <template>
   <div class="card">
-    <router-link :to="href">
+    <router-link :to="path">
       <img v-lazy="thumbnail.src" :alt="thumbnail.alt" srcset="" />
     </router-link>
     <h4>
-      <router-link :to="href">
+      <router-link :to="path">
         {{ title }}
       </router-link>
     </h4>
@@ -36,7 +36,7 @@ export default {
         };
       },
     },
-    href: {
+    path: {
       type: String,
       reuqired: true,
       default: "#",
