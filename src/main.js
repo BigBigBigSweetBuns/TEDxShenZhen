@@ -11,7 +11,7 @@ Vue.config.productionTip = false
 
 //配置axios
 // 本地
-// axios.defaults.baseURL = 'http://localhost:3000/'
+// axios.defaults.baseURL = 'http://localhost:3000/api/'
 // 
 axios.defaults.baseURL = 'http://www.tedxshenzhen.cn/api/'
 Vue.prototype.$axios = axios

@@ -80,9 +80,6 @@ export default {
   created() {
     this.getNewsList();
   },
-  beforeRouteLeave() {
-    this.loading = false;
-  },
 };
 </script>
 
