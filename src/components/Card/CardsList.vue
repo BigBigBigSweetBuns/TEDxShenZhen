@@ -36,5 +36,8 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/variable.scss";
 .card-list {
+  > .row > div {
+    margin-bottom: 2rem;
+  }
 }
 </style>
