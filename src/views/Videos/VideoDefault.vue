@@ -51,7 +51,7 @@ export default {
     },
   },
   created: function () {
-    this.routePath = this.$route.params.path;
+    this.routePath = "/" + this.$route.params.path;
     this.getVideoDefault();
   },
   mounted: function () {

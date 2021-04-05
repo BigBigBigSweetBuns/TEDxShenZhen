@@ -7,9 +7,9 @@
             <img :src="logoSrc | imageBaseURL" alt="" srcset=""
           /></router-link>
         </div>
-        <div class="header-actions">
+        <!-- <div class="header-actions">
           <i class="iconfont icon-search"></i>
-        </div>
+        </div> -->
       </div>
       <ul class="navbar mainmenu">
         <li v-for="(item, index) in navbar" :key="index">
@@ -108,7 +108,7 @@ a {
         top: 2rem;
         left: 0;
         z-index: 500;
-        transition: max-height 1s ease-in;
+        transition: max-height 1s;
         a {
           color: $color-semi;
           font-size: $font-size-content;
