@@ -75,6 +75,7 @@ export default {
     color: $color-gray;
     font-size: $font-size-content;
     line-height: 1.2;
+    margin-bottom: 0;
   }
 }
 </style>

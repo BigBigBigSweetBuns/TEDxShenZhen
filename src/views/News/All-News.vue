@@ -1,31 +1,18 @@
 <template>
   <div class="all-news">
-    <div class="spinner" v-if="loading">
-      <b-spinner label="Loading..."></b-spinner>
-    </div>
-    <b-container>
-      <cards-list :cardsList="cardsList"></cards-list>
-      <b-button
-        class="mx-auto"
-        v-if="!loading && !bottomout"
-        v-on:click="loadmore"
-        >LOAD MORE</b-button
-      >
-    </b-container>
+    <cards-list-button :header="header" :axiosPath="axiosPath"></cards-list-button>
   </div>
 </template>
 
 <script>
-import CardsList from "../../components/Card/CardsList.vue";
+import CardsListButton from "../../components/Card/CardsListButton.vue";
 export default {
-  components: { CardsList },
+  components: { CardsListButton },
   name: "AllNews",
   data() {
     return {
-      cardsList: [],
-      pageNum: 1,
-      loading: false,
-      bottomout: false,
+      header:"TEDx 新闻",
+      axiosPath: "/news",
     };
   },
   methods: {
