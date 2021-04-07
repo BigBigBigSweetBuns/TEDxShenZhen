@@ -1,8 +1,8 @@
 <template>
   <div class="home">
+    <home-carousel></home-carousel>
     <b-container>
-      <home-carousel></home-carousel>
-      <article-min />
+      <article-min header="" :contentHTML="articleContent" />
       <grid-divider></grid-divider>
       <listing-section
         header="最新新闻"
@@ -25,7 +25,7 @@
 
 <script>
 // @ is an alias to /src
-import ArticleMin from "@/components/Article/ArticleMin.vue";
+import ArticleMin from "./ArticleMin.vue";
 import ListingSection from "@/components/ListingSection/ListingSection.vue";
 import GridDivider from "../../components/GridDivider/GridDivider.vue";
 import HomeCarousel from "./HomeCarousel.vue";
@@ -39,6 +39,9 @@ export default {
   },
   data() {
     return {
+      articleContent:
+        "<p style='color:black'><b>TEDxShenzhen</b>于2019年1⽉19⽇正式获得TED官⽅授权，是深圳第⼀个城市级别的TEDx组织，致⼒于传递TED精神—ideas worth spreading。</p>" +
+        "<p><span style='font-size:1.5em'>我们</span>希望在探讨科技、创新的同时，也为这座城市带来⼈⽂、科学、艺术等多元话题及思考，放⼤值得被更多⼈听到的声⾳，⽤思想激发更多有意义的对话，为深圳、中国甚⾄世界带来积极的改变，通过连接全球思想社区，成为深圳在世界舞台发声的桥梁。</p>",
       videosSection: [],
       newsSection: [],
     };

@@ -98,7 +98,6 @@ export default {
   }
   p {
     color: $color-gray;
-    line-height: 1.2;
     margin-bottom: 0;
   }
 
