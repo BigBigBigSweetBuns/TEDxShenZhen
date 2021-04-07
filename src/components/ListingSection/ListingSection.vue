@@ -5,20 +5,20 @@
       <b-col
         cols="12"
         sm="6"
-        md="6"
+        md="4"
         v-for="(item, index) in block"
         :key="index"
       >
-        <router-link :to="item.key">
-          <img :src="item.imgSrc" alt="" srcset="" />
+        <router-link :to="item.path">
+          <img :src="item.thumbnail.src" alt="" srcset="" />
         </router-link>
-        <router-link :to="item.key">
+        <router-link :to="item.path">
           <h4>{{ item.title }}</h4>
         </router-link>
         <p>{{ item.introduction }}</p>
       </b-col>
     </b-row>
-    <router-link :to="toKey" class="see-more">
+    <router-link :to="topath" class="see-more">
       see More <i class="iconfont icon-right-bold"></i>
     </router-link>
   </div>
@@ -33,7 +33,7 @@ export default {
       // required: true,
       default: "listing-section",
     },
-    toKey: {
+    topath: {
       type: String,
       default: "/",
     },
@@ -47,37 +47,8 @@ export default {
               "TEDxSydney Conversations: Evolving the sustainability movement in Australia",
             introduction:
               "Tuesday 13 October 2020 3:30 pm—4:15 pm AEDT Facebook live event Across the world today we are simultaneously facing a health crisis, an economic crisis, an inequality crisis and a climate crisis....",
-            key: "/",
-            imgSrc: "#",
-          },
-          {
-            title: "TEDxSydney 2020",
-            introduction:
-              "What is TEDxSydney? TEDxSydney is Australia's leading ideas forum and a gold standard event on the global TEDx stage. 2019 event highlights HERE",
-            key: "/",
-            imgSrc: "#",
-          },
-          {
-            title: "TEDxSydney 2020",
-            introduction:
-              "What is TEDxSydney? TEDxSydney is Australia's leading ideas forum and a gold standard event on the global TEDx stage. 2019 event highlights HERE",
-            key: "/",
-            imgSrc: "#",
-          },
-          {
-            title:
-              "TEDxSydney Conversations: Evolving the sustainability movement in Australia",
-            introduction:
-              "Tuesday 13 October 2020 3:30 pm—4:15 pm AEDT Facebook live event Across the world today we are simultaneously facing a health crisis, an economic crisis, an inequality crisis and a climate crisis....",
-            key: "/",
-            imgSrc: "#",
-          },
-          {
-            title: "TEDxSydney 2020",
-            introduction:
-              "What is TEDxSydney? TEDxSydney is Australia's leading ideas forum and a gold standard event on the global TEDx stage. 2019 event highlights HERE",
-            key: "/",
-            imgSrc: "#",
+            path: "/",
+            thumbnail: { src: "#", alt: "thumbnail" },
           },
         ];
       },
@@ -104,6 +75,7 @@ export default {
     margin-bottom: 2rem;
   }
   .row {
+    margin-bottom: 2rem;
     > div {
       margin-bottom: 2rem;
     }
@@ -125,7 +97,9 @@ export default {
     height: auto;
   }
   p {
+    color: $color-gray;
     line-height: 1.2;
+    margin-bottom: 0;
   }
 
   .see-more {

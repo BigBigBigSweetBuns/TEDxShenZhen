@@ -4,6 +4,20 @@
       <home-carousel></home-carousel>
       <article-min />
       <grid-divider></grid-divider>
+      <listing-section
+        header="最新新闻"
+        :block="newsSection"
+        topath="/news"
+        class="news"
+      ></listing-section>
+      <grid-divider></grid-divider>
+      <listing-section
+        header="最新视频"
+        :block="videosSection"
+        topath="/videos"
+        class="videos"
+      ></listing-section>
+      <grid-divider></grid-divider>
       <listing-section></listing-section>
     </b-container>
   </div>
@@ -14,7 +28,7 @@
 import ArticleMin from "@/components/Article/ArticleMin.vue";
 import ListingSection from "@/components/ListingSection/ListingSection.vue";
 import GridDivider from "../../components/GridDivider/GridDivider.vue";
-import HomeCarousel from './HomeCarousel.vue';
+import HomeCarousel from "./HomeCarousel.vue";
 export default {
   name: "Home",
   components: {
@@ -23,18 +37,51 @@ export default {
     GridDivider,
     HomeCarousel,
   },
+  data() {
+    return {
+      videosSection: [],
+      newsSection: [],
+    };
+  },
   methods: {
-    // onSlideStart(slide) {
-    //   this.sliding = true;
-    // },
-    // onSlideEnd(slide) {
-    //   this.sliding = false;
-    // },
+    getNewsData() {
+      this.$axios
+        .get("/news/list", {
+          params: {
+            page: 1,
+          },
+        })
+        .then((res) => {
+          const result = res.data.result;
+          if (res.data.code == 0) {
+            this.newsSection = result.slice(0, 3);
+          }
+        });
+    },
+    getVideoData() {
+      this.$axios
+        .get("/videos/list", {
+          params: {
+            page: 1,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          const result = res.data.result;
+          if (res.data.code == 0) {
+            this.videosSection = result.slice(0, 3);
+          }
+        });
+    },
+  },
+  created() {
+    this.getNewsData();
+    this.getVideoData();
   },
 };
 </script>
 <style lang="scss" scoped>
-.home{
+.home {
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
