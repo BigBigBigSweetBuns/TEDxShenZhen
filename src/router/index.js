@@ -19,7 +19,11 @@ const routes = [
   }, {
     path: '/videos',
     name: 'Videos',
-    component: () => import(/* webpackChunkName: "Videos" */ '../views/Videos/Videos.vue')
+    component: () => import(/* webpackChunkName: "Videos" */ '../views/Videos/All-Videos.vue')
+  }, {
+    path: '/videos/talks',
+    name: 'talks',
+    component: () => import(/* webpackChunkName: "Videos" */ '../views/Videos/Talks.vue')
   }, {
     path: '/videos/:path',
     name: 'Videos',

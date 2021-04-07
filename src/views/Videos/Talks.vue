@@ -1,5 +1,5 @@
 <template>
-  <div class="videos">
+  <div class="videos-talks">
     <div class="spinner" v-if="loading">
       <b-spinner label="Loading..."></b-spinner>
     </div>
@@ -20,15 +20,15 @@
 import CardsList from "../../components/Card/CardsList.vue";
 export default {
   components: { CardsList },
-  name: "Videos",
+  name: "VideosTalks",
   data: function () {
     return {
-      header: "视频",
+      header: "演讲与表演",
       cardsList: [],
       pageNum: 1,
       loading: false,
       bottomout: false,
-      division: ["video"],
+      division: ["talk", "preformances"],
       oldLength: 0,
     };
   },
@@ -44,9 +44,8 @@ export default {
       this.loading = true;
       this.pageNum++;
       this.$axios
-        .get("/videos/list/division", {
+        .get("/videos/list/talk&preformances", {
           params: {
-            division: this.division.toString(),
             page: this.pageNum,
           },
         })
@@ -66,8 +65,9 @@ export default {
     },
     getVideoList() {
       this.$axios
-        .get("/videos/list/talk&preformances", {
+        .get("/videos/list/division", {
           params: {
+            division:this.division.toString(), 
             page: this.pageNum,
           },
         })
@@ -92,7 +92,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/variable.scss";
 
-.videos {
+.videos-talks {
   margin-top: 1rem;
   margin-bottom: 1rem;
   position: relative;

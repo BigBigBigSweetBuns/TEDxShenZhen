@@ -1,18 +1,31 @@
 <template>
-  <div class="all-news">
-    <cards-list-button :header="header" :axiosPath="axiosPath"></cards-list-button>
+  <div class="videos">
+    <div class="spinner" v-if="loading">
+      <b-spinner label="Loading..."></b-spinner>
+    </div>
+    <b-container>
+      <cards-list :cardsList="cardsList"></cards-list>
+      <b-button
+        class="mx-auto"
+        v-if="!loading && !bottomout"
+        v-on:click="loadmore"
+        >LOAD MORE</b-button
+      >
+    </b-container>
   </div>
 </template>
 
 <script>
-import CardsListButton from "@/components/Card/CardsListButton.vue";
+import CardsList from "../../components/Card/CardsList.vue";
 export default {
-  components: { CardsListButton },
-  name: "AllNews",
-  data() {
+  components: { CardsList },
+  name: "All-Videos",
+  data: function () {
     return {
-      header:"TEDx 新闻",
-      axiosPath: "/news",
+      cardsList: [],
+      pageNum: 1,
+      loading: false,
+      bottomout: false,
     };
   },
   methods: {
@@ -26,7 +39,7 @@ export default {
       this.loading = true;
       this.pageNum++;
       this.$axios
-        .get("/news/list", {
+        .get("/videos/list", {
           params: {
             page: this.pageNum,
           },
@@ -37,7 +50,7 @@ export default {
           if (res.data.code == 0) {
             this.cardsList.push(
               ...result.map((e) => {
-                e.path = "/news" + e.path;
+                e.path = "/videos" + e.path;
                 return e;
               })
             );
@@ -46,9 +59,9 @@ export default {
           }
         });
     },
-    getNewsList() {
+    getVideoList() {
       this.$axios
-        .get("/news/list", {
+        .get("/videos/list", {
           params: {
             page: this.pageNum,
           },
@@ -57,7 +70,7 @@ export default {
           const result = res.data.result;
           if (res.data.code == 0) {
             this.cardsList = result.map((e) => {
-              e.path = "/news" + e.path;
+              e.path = "/videos" + e.path;
               return e;
             });
           }
@@ -65,15 +78,17 @@ export default {
     },
   },
   created() {
-    this.getNewsList();
+    this.getVideoList();
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.all-news {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+@import "@/assets/variable.scss";
+
+.videos {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   position: relative;
   .spinner {
     display: block;
