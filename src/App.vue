@@ -31,4 +31,8 @@ export default {
 #app {
   width: 100vw;
 }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+    "Helvetica Neue", STHeiti, "Microsoft Yahei", Tahoma, Simsun, sans-serif;
+}
 </style>
