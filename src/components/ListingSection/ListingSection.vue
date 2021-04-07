@@ -19,7 +19,7 @@
       </b-col>
     </b-row>
     <router-link :to="topath" class="see-more">
-      see More <i class="iconfont icon-right-bold"></i>
+      更多 <i class="iconfont icon-right-bold"></i>
     </router-link>
   </div>
 </template>
