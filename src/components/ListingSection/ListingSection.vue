@@ -43,10 +43,8 @@ export default {
       default: function () {
         return [
           {
-            title:
-              "TEDxSydney Conversations: Evolving the sustainability movement in Australia",
-            introduction:
-              "Tuesday 13 October 2020 3:30 pm—4:15 pm AEDT Facebook live event Across the world today we are simultaneously facing a health crisis, an economic crisis, an inequality crisis and a climate crisis....",
+            title: "title",
+            introduction: "introduction",
             path: "/",
             thumbnail: { src: "#", alt: "thumbnail" },
           },
