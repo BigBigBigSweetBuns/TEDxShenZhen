@@ -54,6 +54,7 @@ export default {
       // 触底检测
       if (this.oldLength > length) {
         this.bottomout = true;
+        this.loading = false;
       }
       this.oldLength = length;
     },

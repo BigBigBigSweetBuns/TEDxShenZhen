@@ -22,12 +22,12 @@ var navbarData = [
             {
                 name: "演讲与表演",
                 sub: "",
-                path: "/videos/talks"
+                path: "/videos/talks&performances"
             },
             {
                 name: "视频",
                 sub: "短片，其他活动视频",
-                path: "#"
+                path: "/videos/videos"
             },
         ],
     },

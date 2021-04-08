@@ -14,19 +14,23 @@ const routes = [
     component: () => import(/* webpackChunkName: "Events" */ '../views/Events/Events.vue')
   }, {
     path: '/events/:path',
-    name: 'Events',
+    name: 'Event',
     component: () => import(/* webpackChunkName: "All-News" */ '../views/News/News.vue')
   }, {
     path: '/videos',
-    name: 'Videos',
+    name: 'All-Videos',
     component: () => import(/* webpackChunkName: "Videos" */ '../views/Videos/All-Videos.vue')
   }, {
-    path: '/videos/talks',
-    name: 'talks',
+    path: '/videos/talks&performances',
+    name: 'talks&performances',
     component: () => import(/* webpackChunkName: "Videos" */ '../views/Videos/Talks.vue')
   }, {
+    path: '/videos/videos',
+    name: 'videos',
+    component: () => import(/* webpackChunkName: "Videos" */ '../views/Videos/Videos.vue')
+  }, {
     path: '/videos/:path',
-    name: 'Videos',
+    name: 'Video',
     component: () => import(/* webpackChunkName: "Videos" */ '../views/Videos/VideoDefault.vue')
   }, {
     path: '/speakers',
@@ -54,7 +58,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About/About.vue'),
   }, {
     path: '/about/:id',
-    name: 'About',
+    name: 'AboutId',
     component: () => import(/* webpackChunkName: "All-News" */ '../views/News/News.vue'),
   }, {
     path: '/EditMD',
