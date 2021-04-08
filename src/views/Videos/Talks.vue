@@ -44,8 +44,9 @@ export default {
       this.loading = true;
       this.pageNum++;
       this.$axios
-        .get("/videos/list/talk&preformances", {
+        .get("/videos/list/division", {
           params: {
+            division: this.division.toString(),
             page: this.pageNum,
           },
         })
@@ -67,7 +68,7 @@ export default {
       this.$axios
         .get("/videos/list/division", {
           params: {
-            division:this.division.toString(), 
+            division: this.division.toString(),
             page: this.pageNum,
           },
         })
