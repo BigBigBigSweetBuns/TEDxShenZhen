@@ -1,6 +1,9 @@
 <template>
   <div class="all-news">
-    <cards-list-button :header="header" :axiosPath="axiosPath"></cards-list-button>
+    <cards-list-button
+      :header="header"
+      :cardsList="cardsList"
+    ></cards-list-button>
   </div>
 </template>
 
@@ -11,61 +14,36 @@ export default {
   name: "AllNews",
   data() {
     return {
-      header:"TEDx 新闻",
-      axiosPath: "/news",
+      header: "TEDx 新闻",
+      cardsList: [],
+      pageNum: 1,
     };
   },
   methods: {
-    isbottomout(code) {
-      // 触底检测
-      if (code != 0) {
-        this.bottomout = true;
-      }
-    },
-    loadmore() {
-      this.loading = true;
-      this.pageNum++;
+    getList(pageNum) {
       this.$axios
         .get("/news/list", {
           params: {
-            page: this.pageNum,
+            page: pageNum,
           },
         })
         .then((res) => {
           const result = res.data.result;
-          this.loading = false;
           if (res.data.code == 0) {
-            this.cardsList.push(
+            let temp = [
+              ...this.cardsList,
               ...result.map((e) => {
                 e.path = "/news" + e.path;
                 return e;
-              })
-            );
-          } else {
-            this.isbottomout(res.data.code);
-          }
-        });
-    },
-    getNewsList() {
-      this.$axios
-        .get("/news/list", {
-          params: {
-            page: this.pageNum,
-          },
-        })
-        .then((res) => {
-          const result = res.data.result;
-          if (res.data.code == 0) {
-            this.cardsList = result.map((e) => {
-              e.path = "/news" + e.path;
-              return e;
-            });
+              }),
+            ];
+            this.cardsList = temp;
           }
         });
     },
   },
   created() {
-    this.getNewsList();
+    this.getList(this.pageNum);
   },
 };
 </script>

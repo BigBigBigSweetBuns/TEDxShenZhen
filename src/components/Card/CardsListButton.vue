@@ -10,14 +10,14 @@
         class="mx-auto"
         v-if="!loading && !bottomout"
         v-on:click="loadmore"
-        >LOAD MORE</b-button
+        >加载更多</b-button
       >
     </b-container>
   </div>
 </template>
 
 <script>
-import CardsList from "../../components/Card/CardsList.vue";
+import CardsList from "@/components/Card/CardsList.vue";
 export default {
   components: { CardsList },
   name: "CardsListButton",
@@ -25,23 +25,17 @@ export default {
     header: {
       type: String,
     },
-    axiosPath: {
-      type: String,
-      required: true,
-    },
     cardsList: {
       type: Array,
-      // require: true,
+      require: true,
     },
   },
   data() {
     return {
-      // cardsListData: this.cardsList,
       pageNum: 1,
       loading: false,
       oldLength: 0,
       bottomout: false,
-      getPath: this.axiosPath,
     };
   },
   watch: {
@@ -52,7 +46,6 @@ export default {
   },
   methods: {
     loadmore() {
-      console.log("loadmore");
       this.loading = true;
       this.pageNum++;
       this.$parent.getList(this.pageNum);
