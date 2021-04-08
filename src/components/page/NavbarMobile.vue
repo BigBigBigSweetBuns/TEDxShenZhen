@@ -21,7 +21,11 @@
           :key="index"
         >
           <div>
-            <router-link :to="item.path">{{ item.name }}</router-link>
+            <router-link
+              :to="item.path"
+              v-on:click.native="toggle(index), show()"
+              >{{ item.name }}</router-link
+            >
             <i
               v-if="item.dropDown"
               v-on:click="toggle(index)"
@@ -77,7 +81,8 @@ export default {
   computed: {},
   methods: {
     init_ActiveItem() {
-      let path = this.$route.path;
+      const pathName = this.$route.path.split("/", 2);
+      const path = "/" + pathName[pathName.length - 1].toLowerCase();
       this.menu.forEach((e, i) => {
         if (e.path == path) {
           this.activeItem = i;
@@ -89,8 +94,8 @@ export default {
     },
     toggle(i) {
       this.activeItem = i == this.activeItem ? -1 : i;
+      console.log(this.activeItem);
     },
-    submenu_collapse() {},
   },
   created: function () {
     this.init_ActiveItem();
@@ -153,7 +158,7 @@ a {
       display: flex;
       .navbar-toggle {
         border: 1px solid $color-border;
-        :active {
+        &:active {
           background-color: $color-border;
           color: $color-white;
         }

@@ -47,7 +47,8 @@ export default {
   },
   computed: {
     activeNavbar: function () {
-      return this.$route.path;
+      const path = this.$route.path.split("/", 2);
+      return "/" + path[path.length - 1].toLowerCase();
     },
   },
 };
