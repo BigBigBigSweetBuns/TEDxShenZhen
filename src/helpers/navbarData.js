@@ -1,7 +1,7 @@
 var navbarData = [
     {
         name: "活动",
-        path: "/Events",
+        path: "/events",
         dropDown: [
             {
                 name: "即将举行的活动",
@@ -17,12 +17,12 @@ var navbarData = [
     },
     {
         name: "影片",
-        path: "/Videos",
+        path: "/videos",
         dropDown: [
             {
                 name: "演讲与表演",
                 sub: "",
-                path: "/Videos/Talks"
+                path: "/videos/talks"
             },
             {
                 name: "视频",
@@ -33,7 +33,7 @@ var navbarData = [
     },
     {
         name: "SPEAKERS",
-        path: "/Speakers",
+        path: "/speakers",
         dropDown: [
             {
                 name: "Upcoming Events",
@@ -65,7 +65,7 @@ var navbarData = [
     },
     {
         name: "合作伙伴",
-        path: "/PARTNERS",
+        path: "/partners",
         dropDown: [
             {
                 name: "2020年合作伙伴",
@@ -86,7 +86,7 @@ var navbarData = [
     },
     {
         name: "COMMUNITY",
-        path: "/COMMUNITY",
+        path: "/community",
         dropDown: [
             {
                 name: "Upcoming Events",
@@ -97,12 +97,12 @@ var navbarData = [
     },
     {
         name: "关于我们",
-        path: "/About",
+        path: "/about",
         dropDown: [
             {
                 name: "关于TEDxShenzhen",
                 sub: "TEDxShenzhen于2019年1⽉19日正式获得TED官方授权",
-                path: "/About"
+                path: "/about"
             }, {
                 name: "我们的团队",
                 sub: "组织者，志愿者",
