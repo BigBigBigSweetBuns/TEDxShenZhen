@@ -29,67 +29,44 @@ export default {
       type: String,
       required: true,
     },
+    cardsList: {
+      type: Array,
+      // require: true,
+    },
   },
   data() {
     return {
-      cardsList: [],
+      // cardsListData: this.cardsList,
       pageNum: 1,
       loading: false,
+      oldLength: 0,
       bottomout: false,
       getPath: this.axiosPath,
     };
   },
-  methods: {
-    isbottomout(code) {
-      // 触底检测
-      if (code != 0) {
-        this.bottomout = true;
-      }
+  watch: {
+    cardsList: function (newVal, oldVal) {
+      this.loading = false;
+      this.isbottomout(newVal.length - oldVal.length);
     },
+  },
+  methods: {
     loadmore() {
+      console.log("loadmore");
       this.loading = true;
       this.pageNum++;
-      this.$axios
-        .get(this.getPath + "/list", {
-          params: {
-            page: this.pageNum,
-          },
-        })
-        .then((res) => {
-          const result = res.data.result;
-          this.loading = false;
-          if (res.data.code == 0) {
-            this.cardsList.push(
-              ...result.map((e) => {
-                e.path = this.getPath + e.path;
-                return e;
-              })
-            );
-          } else {
-            this.isbottomout(res.data.code);
-          }
-        });
+      this.$parent.getList(this.pageNum);
     },
-    getList() {
-      this.$axios
-        .get(this.getPath + "/list", {
-          params: {
-            page: this.pageNum,
-          },
-        })
-        .then((res) => {
-          const result = res.data.result;
-          if (res.data.code == 0) {
-            this.cardsList = result.map((e) => {
-              e.path = this.getPath + e.path;
-              return e;
-            });
-          }
-        });
+    isbottomout(length) {
+      // 触底检测
+      if (this.oldLength > length) {
+        this.bottomout = true;
+      }
+      this.oldLength = length;
     },
   },
   created() {
-    this.getList();
+    // this.$parent.getList(this.pageNum);
   },
 };
 </script>
