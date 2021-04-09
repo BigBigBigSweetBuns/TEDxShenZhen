@@ -49,8 +49,12 @@
       <div class="site-info">
         <span>
           © Copyright 2018 TedxFutian All rights reserved tedxfutian.com.
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            网站备案粤ICP备17159193号
+          <a
+            href="http://beian.miit.gov.cn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            网站备案粤ICP备17159193号-1
           </a>
         </span>
         - Enfold WordPress Theme by Kriesi

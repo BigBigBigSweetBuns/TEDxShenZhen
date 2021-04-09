@@ -2,6 +2,7 @@
   <div>
     <b-carousel
       id="carousel-1"
+      ref="carousel"
       v-model="slide"
       :interval="4000"
       controls
@@ -49,6 +50,21 @@ export default {
     return {
       slide: 0,
       sliding: null,
+      screenWidth: document.body.clientWidth, // 屏幕宽度
+    };
+  },
+  computed: {},
+  mounted() {
+    // window.document.getElementsByClassName("carousel-inner")[0].style.height =
+    //   this.screenWidth * 0.3 + "px";
+    // 监听窗口大小
+    window.onresize = () => {
+      return (() => {
+        this.screenWidth = document.body.clientWidth;
+        // window.document.getElementsByClassName(
+        //   "carousel-inner"
+        // )[0].style.height = this.screenWidth * 0.3 + "px";
+      })();
     };
   },
   methods: {},

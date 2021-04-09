@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <home-carousel></home-carousel>
     <b-container>
+      <home-carousel></home-carousel>
       <article-min header="" :contentHTML="articleContent" />
       <grid-divider></grid-divider>
       <listing-section
