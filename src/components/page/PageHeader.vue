@@ -19,7 +19,15 @@
             >{{ item.name }}</router-link
           >
           <ul class="submenu">
-            <li v-for="(dorp, i) in item.dropDown" :key="i">
+            <li
+              :style="
+                item.dropDown.length > 4
+                  ? 'width:' + 100 / item.dropDown.length + '%'
+                  : 'width:30%'
+              "
+              v-for="(dorp, i) in item.dropDown"
+              :key="i"
+            >
               <router-link :to="dorp.path"
                 >{{ dorp.name }}
                 <br />

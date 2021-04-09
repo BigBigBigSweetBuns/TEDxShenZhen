@@ -32,22 +32,17 @@ var navbarData = [
         ],
     },
     {
-        name: "SPEAKERS",
+        name: "讲者",
         path: "/speakers",
         dropDown: [
             {
-                name: "Upcoming Events",
-                sub: "Get to know what's up next at TedxSydney We welcome the brightest and the bravest brands to engage with our community We welcome the brightest and the bravest brands to engage with our community",
-                path: "#"
+                name: "演讲者和表演者",
+                sub: "之前 TEDxShenzhen 活动的所有演讲者和表演者",
+                path: "/speakers"
             },
             {
-                name: "Upcoming Events",
-                sub: "Get to know what's up next at TedxSydney We welcome the brightest and the bravest brands to engage with our community We welcome the brightest and the bravest brands to engage with our community",
-                path: "#"
-            },
-            {
-                name: "Upcoming Events",
-                sub: "Get to know what's up next at TedxSydney We welcome the brightest and the bravest brands to engage with our community We welcome the brightest and the bravest brands to engage with our community",
+                name: "提名讲者",
+                sub: "",
                 path: "#"
             },
         ],
