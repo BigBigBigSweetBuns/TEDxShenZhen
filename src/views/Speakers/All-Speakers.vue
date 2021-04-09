@@ -1,18 +1,22 @@
 <template>
-  <div class="All-speakers">
+  <div class="all-speakers">
     <b-container>
-      <cards-list :cardsList="cardsListData"></cards-list>
+      <div class="section">
+        <h2 class="header">{{ header }}</h2>
+        <cards-list :cardsList="cardsListData"></cards-list>
+      </div>
     </b-container>
   </div>
 </template>
 
 <script>
-import CardsList from "../../components/Card/CardsList.vue";
+import CardsList from "@/components/Card/CardsList.vue";
 export default {
   components: { CardsList },
   name: "All-speakers",
   data() {
     return {
+      header: "2021年大会讲者",
       division: [2021, 2020],
       cardsList: [],
     };
@@ -60,4 +64,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.all-speakers {
+  .header {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  ::v-deep .card {
+    img {
+      background-color: transparent !important;
+    }
+    h4 {
+      text-align: center;
+    }
+  }
+}
 </style>
