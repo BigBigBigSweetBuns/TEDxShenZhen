@@ -34,8 +34,8 @@ const routes = [
     component: () => import(/* webpackChunkName: "Videos" */ '../views/Videos/VideoDefault.vue')
   }, {
     path: '/speakers',
-    name: 'Speakers',
-    component: () => import(/* webpackChunkName: "Speakers" */ '../views/Speakers/Speakers.vue')
+    name: 'All-Speakers',
+    component: () => import(/* webpackChunkName: "Speakers" */ '../views/Speakers/All-Speakers.vue')
   }, {
     path: '/news',
     name: 'All-News',
