@@ -2,9 +2,9 @@
   <div class="card-list">
     <b-row>
       <b-col
-        cols="12"
-        sm="6"
-        md="4"
+        :cols="cols"
+        :sm="sm"
+        :md="md"
         v-for="(cardData, index) in cardsList"
         :key="index"
       >
@@ -28,6 +28,18 @@ export default {
     cardsList: {
       type: Array,
       reuqired: true,
+    },
+    cols: {
+      type: [String, Number],
+      default: 12,
+    },
+    sm: {
+      type: [String, Number],
+      default: 6,
+    },
+    md: {
+      type: [String, Number],
+      default: 4,
     },
   },
 };

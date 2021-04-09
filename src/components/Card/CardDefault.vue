@@ -24,7 +24,6 @@ export default {
     introduction: {
       type: String,
       reuqired: true,
-      default: "introduction",
     },
     thumbnail: {
       type: Object,
