@@ -157,6 +157,7 @@ a {
     .header-actions {
       display: flex;
       .navbar-toggle {
+        z-index: 600;
         border: 1px solid $color-border;
         &:active {
           background-color: $color-border;
