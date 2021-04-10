@@ -55,6 +55,7 @@ export default {
   a {
     color: $color-semi;
     display: block;
+    margin-bottom: 0.5rem;
     &:hover,
     &:active {
       color: $tedx-red;
@@ -67,7 +68,6 @@ export default {
       width: 100%;
       min-height: 5rem;
       background-color: $color-light;
-      margin-bottom: 0.5rem;
     }
   }
   p {
