@@ -3,16 +3,16 @@
     <b-container>
       <div class="section">
         <h2 class="header">{{ header }}</h2>
-        <cards-list :cardsList="cardsListData"></cards-list>
+        <speaker-list-2021 :cardsList="cardsList"></speaker-list-2021>
       </div>
     </b-container>
   </div>
 </template>
 
 <script>
-import CardsList from "@/components/Card/CardsList.vue";
+import SpeakerList2021 from "./SpeakerList2021.vue";
 export default {
-  components: { CardsList },
+  components: { SpeakerList2021 },
   name: "All-speakers",
   data() {
     return {
@@ -70,14 +70,6 @@ export default {
     text-align: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
-  }
-  ::v-deep .card {
-    img {
-      background-color: transparent !important;
-    }
-    h4 {
-      text-align: center;
-    }
   }
 }
 </style>
