@@ -53,7 +53,6 @@ export default {
               }),
             ];
           }
-          console.log(this.cardsList);
         });
     },
   },
@@ -65,6 +64,8 @@ export default {
 
 <style lang="scss" scoped>
 .all-speakers {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   .header {
     font-weight: bold;
     text-align: center;

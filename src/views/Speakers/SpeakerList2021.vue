@@ -8,9 +8,13 @@
         v-for="(cardData, index) in cardsList"
         :key="index"
       >
-        <div class="card" @mouseover="shadow(index)">
+        <div
+          class="card"
+          @mouseover="showShadow(index)"
+          @mouseleave="hiddenShadow(index)"
+        >
           <router-link :to="cardData.path">
-            <div class="img-block">
+            <div ref="imgBlock" class="img-block">
               <img
                 v-lazy="cardData.portrait.src"
                 :alt="cardData.portrait.alt"
@@ -20,7 +24,7 @@
               <div ref="shadowBottomleft" class="shadow-bottomleft"></div>
             </div>
           </router-link>
-          <h4 class="">
+          <h4>
             <router-link :to="cardData.path">
               {{ cardData.name }}
             </router-link>
@@ -47,11 +51,11 @@ export default {
     },
     sm: {
       type: [String, Number],
-      default: 4,
+      default: 6,
     },
     md: {
       type: [String, Number],
-      default: 3,
+      default: 4,
     },
   },
   data() {
@@ -62,17 +66,26 @@ export default {
   computed: {},
   methods: {
     //当前操作的元素
-    shadow(idx) {
+    showShadow(idx) {
+      const maxPX = this.$refs.imgBlock[idx].clientWidth / 4; //最长的长度
+      const aPX = Math.floor(maxPX / 20);
       let shadow = "";
-      for (let i = 0; i < 50; i++) {
+      for (let i = -2; i < 20; i++) {
         shadow +=
-          (shadow ? "," : "") + 0 + "px " + -i + "px" + "  rgba(70,70,70,0.05)";
+          (shadow ? "," : "") +
+          0 +
+          "px " +
+          -aPX * i +
+          "px" +
+          "  rgba(70,70,70,0.05)";
       }
       this.$refs.shadowTopright[idx].style.boxShadow = shadow;
-      this.$refs.shadowTopright[idx].style.transform = "rotate(" + 70 + "deg)";
       this.$refs.shadowBottomleft[idx].style.boxShadow = shadow;
-      this.$refs.shadowBottomleft[idx].style.transform =
-        "rotate(" + 250 + "deg)";
+    },
+    hiddenShadow(idx) {
+      const shadow = "";
+      this.$refs.shadowTopright[idx].style.boxShadow = shadow;
+      this.$refs.shadowBottomleft[idx].style.boxShadow = shadow;
     },
   },
   mounted: function () {},
@@ -86,53 +99,55 @@ export default {
     border: none;
     border-radius: 0%;
     .img-block {
+      height: 0;
+      padding-bottom: 100%;
       position: relative;
       .shadow-topright,
       .shadow-bottomleft {
         display: block;
-        width: 100%;
-        height: 100%;
+        width: 70%;
+        height: 70%;
         border-radius: 50%;
         position: absolute;
+        top: 50%;
+        left: 50%;
+        transition: box-shadow 0.5s;
       }
       .shadow-topright {
-        top: 0;
-        right: 0;
+        transform: translate(-50%, -50%) rotate(70deg);
       }
       .shadow-bottomleft {
-        bottom: 0;
-        left: 0;
-      }
-      img {
-        position: relative;
-        border-radius: 50%;
-      }
-    }
-    & > :nth-child(n) {
-      margin-bottom: 0.5rem;
-    }
-    a {
-      color: $color-semi;
-      display: block;
-      &:hover,
-      &:active {
-        color: $tedx-red;
+        transform: translate(-50%, -50%) rotate(250deg);
       }
       img {
         display: block;
-        width: 100%;
-        min-height: 5rem;
+        width: 70%;
+        border-radius: 50%;
         background-color: $color-light;
+        min-height: 5rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
+    }
+
+    a {
+      display: block;
+      color: $color-semi;
+      transition: color 0.5s;
     }
     h4 {
       text-align: center;
     }
-    p {
-      color: $color-gray;
-      font-size: $font-size-content;
-      line-height: 1.2;
-      margin-bottom: 0;
+    &:hover,
+    &:active {
+      a {
+        color: $tedx-red;
+      }
+    }
+    & > :nth-child(n) {
+      margin-bottom: 0.5rem;
     }
   }
 }
