@@ -118,7 +118,7 @@ a {
       z-index: 999;
       margin-right: 3rem;
       > li {
-        padding: 1rem 0 0;
+        padding: 1rem 0;
         .submenu {
           display: flex;
           width: 100%;
@@ -167,7 +167,7 @@ a {
           font-size: $font-size-content;
           i {
             position: relative;
-            top: calc(3px + .5rem);
+            top: 3px;
             font-size: $font-size-head;
             margin-right: 1rem;
           }

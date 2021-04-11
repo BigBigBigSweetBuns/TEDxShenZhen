@@ -5,12 +5,12 @@
         <b-form>
           <div class="form-inline">
             <label class="" for="newsletter-email"
-              >Subscribe To Our Newsletter</label
+              >订阅我们的邮件新闻服务</label
             >
             <b-form-input
               id="newsletter-email"
               class=""
-              placeholder="Email Address"
+              placeholder="邮箱地址"
             ></b-form-input>
             <b-button
               type="submit"

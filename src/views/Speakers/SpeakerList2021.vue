@@ -47,7 +47,7 @@ export default {
     },
     cols: {
       type: [String, Number],
-      default: 12,
+      default: 6,
     },
     sm: {
       type: [String, Number],
@@ -122,6 +122,7 @@ export default {
       img {
         display: block;
         width: 70%;
+        height: 70%;
         border-radius: 50%;
         background-color: $color-light;
         min-height: 5rem;
