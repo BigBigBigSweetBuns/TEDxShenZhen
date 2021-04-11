@@ -37,6 +37,10 @@ const routes = [
     name: 'All-Speakers',
     component: () => import(/* webpackChunkName: "Speakers" */ '../views/Speakers/All-Speakers.vue')
   }, {
+    path: '/contributor/:path',
+    name: 'contributor',
+    component: () => import(/* webpackChunkName: "Speakers" */ '../views/Contributors/ContributorSpeaker.vue')
+  }, {
     path: '/news',
     name: 'All-News',
     component: () => import(/* webpackChunkName: "All-News" */ '../views/News/All-News.vue')

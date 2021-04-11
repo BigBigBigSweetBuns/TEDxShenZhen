@@ -48,7 +48,7 @@ export default {
             this.cardsList = [
               ...this.cardsList,
               ...result.map((e) => {
-                e.path = "/speakers" + e.path;
+                e.path = "/contributor" + e.path;
                 return e;
               }),
             ];
