@@ -1,6 +1,6 @@
 <template>
   <div class="cards-list-button">
-    <div class="spinner" v-if="loading">
+    <div class="spinner" v-if="loading && !isbottomout">
       <b-spinner label="Loading..."></b-spinner>
     </div>
     <b-container>
@@ -8,7 +8,7 @@
       <cards-list :cardsList="cardsList"></cards-list>
       <b-button
         class="mx-auto"
-        v-if="!loading && !bottomout"
+        v-if="!loading && !isbottomout"
         v-on:click="loadmore"
         >加载更多</b-button
       >
@@ -29,39 +29,45 @@ export default {
       type: Array,
       require: true,
     },
+    bottomout: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       pageNum: 1,
       loading: false,
       oldLength: 0,
-      bottomout: false,
+      isbottomout: this.bottomout,
     };
   },
   watch: {
+    bottomout: function (newVal) {
+      this.isbottomout = newVal;
+    },
     cardsList: function (newVal, oldVal) {
       this.loading = false;
-      this.isbottomout(newVal.length - oldVal.length);
+      this.ifbottomout(newVal.length - oldVal.length);
     },
   },
   methods: {
     loadmore() {
       this.loading = true;
+
       this.pageNum++;
       this.$parent.getList(this.pageNum);
     },
-    isbottomout(length) {
+    ifbottomout(length) {
       // 触底检测
       if (this.oldLength > length) {
-        this.bottomout = true;
+        this.isbottomout = true;
         this.loading = false;
       }
       this.oldLength = length;
     },
   },
-  created() {
-    // this.$parent.getList(this.pageNum);
-  },
+  created() {},
 };
 </script>
 

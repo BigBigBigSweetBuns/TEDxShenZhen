@@ -3,6 +3,7 @@
     <cards-list-button
       :header="header"
       :cardsList="cardsList"
+      :bottomout="bottomout"
     ></cards-list-button>
   </div>
 </template>
@@ -17,6 +18,7 @@ export default {
       header: "TEDx 新闻",
       cardsList: [],
       pageNum: 1,
+      bottomout: false,
     };
   },
   methods: {
@@ -38,6 +40,8 @@ export default {
               }),
             ];
             this.cardsList = temp;
+          } else {
+            this.bottomout = true;
           }
         });
     },
