@@ -27,7 +27,7 @@
         </div>
       </b-row>
       <div class="media-widgets row" v-if="!is_mobilewidth">
-        <div class="li col-6" v-for="(icon, index) in mediaIcons" :key="index">
+        <div class="li col-4" v-for="(icon, index) in mediaIcons" :key="index">
           <a :href="icon.href" target="_blank"
             ><i class="iconfont" :class="icon.icon"></i>{{ icon.name }}</a
           >
@@ -48,7 +48,7 @@
       </b-row>
       <div class="site-info">
         <span>
-          © Copyright 2018 TedxFutian All rights reserved tedxfutian.com.
+          © Copyright 2018 TedxShenzhen All rights reserved tedxShenzhen.com.
           <a
             href="http://beian.miit.gov.cn"
             target="_blank"
@@ -57,7 +57,6 @@
             网站备案粤ICP备17159193号-1
           </a>
         </span>
-        - Enfold WordPress Theme by Kriesi
       </div>
     </div>
   </div>
@@ -65,28 +64,13 @@
 
 <script>
 import { navbarData } from "@/helpers/navbarData.js";
+import { mediaIcons } from "@/assets/data/mediaicons.js";
 export default {
   name: "PageFooter",
   data: function () {
     return {
       navbar: navbarData,
-      mediaIcons: [
-        {
-          name: "bilibili",
-          icon: "icon-bilibili-fill",
-          href: "https://b23.tv/ctoCzH",
-        },
-        {
-          name: "weibo",
-          icon: "icon-weibo",
-          href: "https://weibo.com/u/3173721460",
-        },
-        {
-          name: "wechat",
-          icon: "icon-wechat",
-          href: "https://mp.weixin.qq.com/s/bV5mjH4eqTRfWO1bZtVUOw",
-        },
-      ],
+      mediaIcons: mediaIcons,
     };
   },
   computed: {
@@ -134,6 +118,7 @@ li {
         label,
         input {
           margin-right: 1rem;
+          margin-bottom: 0.5rem;
         }
       }
     }
@@ -146,7 +131,7 @@ li {
             margin-right: 0;
           }
           .form-control {
-            width: calc(100% - 1rem - 50px);
+            width: calc(100% - 1rem - 51px);
           }
         }
       }

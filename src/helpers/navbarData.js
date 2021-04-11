@@ -16,6 +16,17 @@ var navbarData = [
     //     ],
     // },
     {
+        name: "新闻",
+        path: "/news",
+        // dropDown: [
+        //     {
+        //         name: "Upcoming Events",
+        //         sub: "Get to know what's up next at TedxSydney",
+        //         path: "#"
+        //     },
+        // ],
+    },
+    {
         name: "影片",
         path: "/videos",
         dropDown: [
@@ -46,17 +57,6 @@ var navbarData = [
                 path: "#"
             },
         ],
-    },
-    {
-        name: "新闻",
-        path: "/news",
-        // dropDown: [
-        //     {
-        //         name: "Upcoming Events",
-        //         sub: "Get to know what's up next at TedxSydney",
-        //         path: "#"
-        //     },
-        // ],
     },
     // {
     //     name: "合作伙伴",
