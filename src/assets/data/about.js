@@ -1,6 +1,6 @@
 var aboutData = {
     banner: {
-        src: "",
+        src: "https://tedxshenzhen.oss-cn-shenzhen.aliyuncs.com/640.gif",
         alt: "banner",
     },
     title: "About TEDxshenzhen",

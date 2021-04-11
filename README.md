@@ -32,7 +32,7 @@ nginx、expresss、mysql
 
 分为 moblie 和 pc 端。小于 576px 的情况使用 mobile 端。
 
-pc 使用 bootsrap 的 container 和 col 布局。
+pc 使用 bootsrap 的 container 、row、 col 布局。
 
 
 
@@ -46,15 +46,15 @@ pc 使用 bootsrap 的 container 和 col 布局。
 
 #### 后台数据管理
 
-因为数据不经常更新，就不开发后台管理页面。同时不使用数据库，使用对象储存（json）文件。
+数据不经常更新，不开发后台管理页面。同时不使用数据库，使用对象储存（json）文件。
 
 请求后台的 express 的接口，express 来进行处理和返回 json 数据。
 
-**考虑1：**
+** 曾经考虑1：**
 
 对象储存：一文件一对象。文件夹为对象组。
 
-**考虑2**：
+** 曾经考虑2**：
 
 直接使用 对象储存数据库
 
@@ -90,3 +90,12 @@ Page-header 模块需要分成 pc 端 和 mobile 端，通过判断 视图宽度
 
 页面顶部一行 logo 和 一个汉堡按钮，点击汉堡按钮，左侧弹出导航条页。
 
+
+
+#### Page-footer 模块
+
+内容：邮件订阅服务、导航信息、网站信息、相关网站链接
+
+##### mboile 端
+
+取消了导航信息。扩大展示了相关网站链接。

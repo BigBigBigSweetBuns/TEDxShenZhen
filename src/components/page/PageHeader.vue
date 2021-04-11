@@ -171,6 +171,10 @@ a {
             font-size: $font-size-head;
             margin-right: 1rem;
           }
+          &:hover,
+          &:active {
+            color: $tedx-red;
+          }
         }
       }
     }

@@ -118,7 +118,6 @@ li {
         label,
         input {
           margin-right: 1rem;
-          margin-bottom: 0.5rem;
         }
       }
     }
@@ -158,6 +157,9 @@ li {
           font-size: $font-size-head;
           margin-right: 1rem;
         }
+      &:hover,&:active{
+        color: $tedx-red;
+      }
       }
     }
   }
