@@ -59,7 +59,7 @@
               :key="i"
             >
               <div>
-                <a :href="subItem.path">{{ subItem.name }}</a>
+                <router-link :to="subItem.path">{{ subItem.name }}</router-link>
               </div>
             </li>
           </ul>
@@ -99,7 +99,6 @@ export default {
     },
     toggle(i) {
       this.activeItem = i == this.activeItem ? -1 : i;
-      console.log(this.activeItem);
     },
   },
   created: function () {
