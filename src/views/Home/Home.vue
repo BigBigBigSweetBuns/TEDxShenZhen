@@ -17,8 +17,8 @@
         topath="/videos"
         class="videos"
       ></listing-section>
-      <grid-divider></grid-divider>
-      <listing-section></listing-section>
+      <!-- <grid-divider></grid-divider> -->
+      <!-- <listing-section></listing-section> -->
     </b-container>
   </div>
 </template>
