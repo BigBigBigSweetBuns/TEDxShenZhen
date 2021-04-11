@@ -32,7 +32,7 @@ nginx、expresss、mysql
 
 分为 moblie 和 pc 端。小于 576px 的情况使用 mobile 端。
 
-pc 使用 bootsrap 的 container 、row、 col 布局。
+pc 使用 bootsrap 的 container,row, col 布局。
 
 
 
@@ -82,13 +82,25 @@ bootstrap 没有想要的相关的样式，手写了一个 Page-header 模块。
 
 Page-header 模块需要分成 pc 端 和 mobile 端，通过判断 视图宽度 判断切换。
 
+
+
 ##### PC 端
 
 分为两行 logo一行、导航条 一行，鼠标移动到上面是，向下显示子导航条。
 
+
+
 ##### mobile 端
 
 页面顶部一行 logo 和 一个汉堡按钮，点击汉堡按钮，左侧弹出导航条页。
+
+**难点**
+
+动画效果
+
+子导航条出现效果
+
+通过锚定当前路由，高亮当前导航
 
 
 
@@ -99,3 +111,41 @@ Page-header 模块需要分成 pc 端 和 mobile 端，通过判断 视图宽度
 ##### mboile 端
 
 取消了导航信息。扩大展示了相关网站链接。
+
+
+
+#### docment.title 页面标题
+
+给每个路由  meta 对象添加 title 属性。
+
+通过全局路由拦截，在路由发生变化修改页面 title 。
+
+```javascript
+router.beforeEach((to, from, next) => {
+  /* 路由发生变化修改页面title */
+  if (to.meta.title) {
+    document.title = to.meta.title + " - TEDx深圳";
+  }
+  next()
+})
+```
+
+动态路由匹配时，数据加载完后调用
+
+```javascript
+changeDowcumentTitle(title) {
+   document.title = title + " - TEDx深圳";
+},
+```
+
+
+
+#### 分块列表请求
+
+
+
+#### 文章展示
+
+
+
+#### 视频展示
