@@ -40,7 +40,9 @@
         </ul>
         <div class="media-widgets">
           <div class="li" v-for="(icon, index) in mediaIcons" :key="index">
-            <a :href="icon.href"><i class="iconfont" :class="icon.icon"></i></a>
+            <a target="_blank" :href="icon.href"
+              ><i class="iconfont" :class="icon.icon"></i
+            ></a>
           </div>
         </div>
       </div>
