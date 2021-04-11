@@ -28,6 +28,9 @@ export default {
 </script>
 <style lang="scss" >
 @import "./assets/main.scss";
+html {
+  overflow-x: hidden;
+}
 #app {
   width: 100vw;
 }
