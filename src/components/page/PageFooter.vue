@@ -5,7 +5,7 @@
         <b-form>
           <div class="form-inline">
             <label class="" for="newsletter-email"
-              >订阅我们的邮件新闻服务</label
+              >订阅我们的邮件服务</label
             >
             <b-form-input
               id="newsletter-email"

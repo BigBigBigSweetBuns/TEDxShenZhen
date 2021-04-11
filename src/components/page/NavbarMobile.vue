@@ -7,7 +7,7 @@
         /></router-link>
       </div>
       <div class="header-actions">
-        <div class="navbar-toggle" v-on:click="show()">
+        <div class="navbar-toggle" v-on:click="expandedToggle()">
           <i class="iconfont icon-menu-hamburger"></i>
         </div>
       </div>
@@ -28,7 +28,7 @@
           <div>
             <router-link
               :to="item.path"
-              v-on:click.native="toggle(index), show()"
+              v-on:click.native="toggle(index), expandedToggle()"
               >{{ item.name }}</router-link
             >
             <i
@@ -59,14 +59,18 @@
               :key="i"
             >
               <div>
-                <router-link :to="subItem.path">{{ subItem.name }}</router-link>
+                <router-link
+                  :to="subItem.path"
+                  v-on:click.native="expandedToggle()"
+                  >{{ subItem.name }}</router-link
+                >
               </div>
             </li>
           </ul>
         </li>
       </ul>
     </div>
-    <div class="barrier" v-show="expanded" v-on:click="show()"></div>
+    <div class="barrier" v-show="expanded" v-on:click="expandedToggle()"></div>
   </div>
 </template>
 
@@ -94,7 +98,8 @@ export default {
         }
       });
     },
-    show() {
+    expandedToggle() {
+      //控制 左侧导航栏
       this.expanded = !this.expanded;
     },
     toggle(i) {

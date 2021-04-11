@@ -134,7 +134,7 @@ a {
           a {
             color: $color-semi;
             font-size: $font-size-content;
-            margin: 1.5rem 1rem;
+            margin: 1.5rem 1rem 1.5rem 0;
             span {
               color: $color-gray;
               font-size: $font-size-secondary;

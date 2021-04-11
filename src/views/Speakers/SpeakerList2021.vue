@@ -24,11 +24,11 @@
               <div ref="shadowBottomleft" class="shadow-bottomleft"></div>
             </div>
           </router-link>
-          <h4>
-            <router-link :to="cardData.path">
+          <router-link :to="cardData.path">
+            <h4>
               {{ cardData.name }}
-            </router-link>
-          </h4>
+            </h4>
+          </router-link>
           <p>{{ cardData.introduction }}</p>
         </div>
       </b-col>
@@ -140,6 +140,19 @@ export default {
     }
     h4 {
       text-align: center;
+      &::before,
+      &::after {
+        display: inline-block;
+        color: $tedx-red;
+        content: "/";
+        position: relative;
+      }
+      &::before {
+        margin-right: 0.3em;
+      }
+      &::after {
+        margin-left: 0.3em;
+      }
     }
     &:hover,
     &:active {
