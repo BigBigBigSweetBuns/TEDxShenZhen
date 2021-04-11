@@ -11,38 +11,46 @@
           <i class="iconfont icon-search"></i>
         </div> -->
       </div>
-      <ul class="navbar mainmenu">
-        <li v-for="(item, index) in navbar" :key="index">
-          <router-link
-            :to="item.path"
-            :class="item.path == activeNavbar ? 'active' : ''"
-            >{{ item.name }}</router-link
-          >
-          <ul class="submenu">
-            <li
-              :style="
-                item.dropDown.length > 4
-                  ? 'width:' + 100 / item.dropDown.length + '%'
-                  : 'width:30%'
-              "
-              v-for="(dorp, i) in item.dropDown"
-              :key="i"
+      <div class="line">
+        <ul class="navbar mainmenu">
+          <li v-for="(item, index) in navbar" :key="index">
+            <router-link
+              :to="item.path"
+              :class="item.path == activeNavbar ? 'active' : ''"
+              >{{ item.name }}</router-link
             >
-              <router-link :to="dorp.path"
-                >{{ dorp.name }}
-                <br />
-                <span>{{ dorp.sub }}</span>
-              </router-link>
-            </li>
-          </ul>
-        </li>
-      </ul>
+            <ul v-if="item.dropDown" class="submenu">
+              <li
+                :style="
+                  item.dropDown.length > 4
+                    ? 'width:' + 100 / item.dropDown.length + '%'
+                    : 'width:30%'
+                "
+                v-for="(dorp, i) in item.dropDown"
+                :key="i"
+              >
+                <router-link :to="dorp.path"
+                  >{{ dorp.name }}
+                  <br />
+                  <span>{{ dorp.sub }}</span>
+                </router-link>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="media-widgets">
+          <div class="li" v-for="(icon, index) in mediaIcons" :key="index">
+            <a :href="icon.href"><i class="iconfont" :class="icon.icon"></i></a>
+          </div>
+        </div>
+      </div>
     </b-container>
   </div>
 </template>
 
 <script>
 import { navbarData } from "@/helpers/navbarData.js";
+import { mediaIcons } from "@/assets/data/mediaicons.js";
 export default {
   name: "PageHeader",
   components: {},
@@ -51,6 +59,7 @@ export default {
       navbar: navbarData,
       logoSrc:
         "logo-white.jpg?versionId=CAEQHRiBgMDym7WjwxciIGQzYjYwZDhmNWMyYzQ2ZWU4OGQxNjMxNGNiNzZlODNl",
+      mediaIcons: mediaIcons,
     };
   },
   computed: {
@@ -101,45 +110,67 @@ a {
       line-height: 4rem;
     }
   }
-  .mainmenu {
-    padding: 0rem 1rem;
-    z-index: 999;
-    > li {
-      padding: 0.5rem 0;
-      .submenu {
-        display: flex;
-        width: 100%;
-        max-height: 0;
-        background-color: $color-white;
-        box-sizing: border-box;
-        overflow: hidden;
-        position: absolute;
-        top: 2rem;
-        left: 0;
-        z-index: 500;
-        transition: max-height 1s;
-        a {
-          color: $color-semi;
-          font-size: $font-size-content;
-          margin: 1.5rem 1rem;
-          span {
-            color: $color-gray;
-            font-size: $font-size-secondary;
+  .line {
+    display: flex;
+    justify-content: space-between;
+    .mainmenu {
+      width: 70%;
+      z-index: 999;
+      margin-right: 3rem;
+      > li {
+        padding: 1rem 0 0;
+        .submenu {
+          display: flex;
+          width: 100%;
+          max-height: 0;
+          background-color: $color-white;
+          box-sizing: border-box;
+          overflow: hidden;
+          position: absolute;
+          top: 2.2rem;
+          left: 0;
+          z-index: 500;
+          transition: max-height 1s;
+          a {
+            color: $color-semi;
+            font-size: $font-size-content;
+            margin: 1.5rem 1rem;
+            span {
+              color: $color-gray;
+              font-size: $font-size-secondary;
+            }
+            &:hover,
+            &:active {
+              color: $tedx-red;
+            }
           }
-          &:hover,
-          &:active {
+        }
+        &:hover {
+          > a {
             color: $tedx-red;
+          }
+          .submenu {
+            z-index: 600;
+            max-height: 10rem;
+            border-bottom: 1px solid $tedx-red;
           }
         }
       }
-      &:hover {
-        > a {
-          color: $tedx-red;
-        }
-        .submenu {
-          z-index: 600;
-          max-height: 10rem;
-          border-bottom: 1px solid $tedx-red;
+    }
+    .media-widgets {
+      display: flex;
+      align-items: center;
+
+      .li {
+        a {
+          color: $color-gray;
+          font-size: $font-size-content;
+          i {
+            position: relative;
+            top: calc(3px + .5rem);
+            font-size: $font-size-head;
+            margin-right: 1rem;
+          }
         }
       }
     }

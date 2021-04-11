@@ -14,6 +14,11 @@
     </b-container>
     <div class="navbar-collapse" :style="expanded ? { left: 0 + 'vw' } : ''">
       <ul class="main-menu">
+        <li class="menu-item">
+          <router-link class="logo" to="/">
+            <img :src="logoSrc | imageBaseURL"
+          /></router-link>
+        </li>
         <li
           class="menu-item"
           :class="index == activeItem ? 'active' : ''"
@@ -106,7 +111,9 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/variable.scss";
 $border: 1px solid $color-light;
-
+img {
+  width: auto;
+}
 .barrier {
   display: block;
   position: fixed;
@@ -188,6 +195,14 @@ a {
     .main-menu {
       .menu-item {
         font-size: $font-size-content;
+        .logo {
+          padding: 0.5rem 1rem;
+          border-bottom: $border;
+          img {
+            height: 2.5rem;
+            // width: 70%;
+          }
+        }
         > div {
           display: flex;
           width: 100%;
