@@ -2,9 +2,9 @@
   <div class="contributor-speaker">
     <b-container>
       <contributor-default
-        :portrait="speakerData.portrait"
-        :name="speakerData.name"
-        :contentHTML="speakerData.contentHTML"
+        :portrait="portrait"
+        :name="name"
+        :contentHTML="contentHTML"
       ></contributor-default>
       <!-- <grid-divider></grid-divider> -->
       <!-- <cards-list ></cards-list> -->
@@ -22,10 +22,15 @@ export default {
   data() {
     return {
       speakerPath: "",
-      speakerData: {},
+      portrait: "",
+      name: "",
+      contentHTML: "",
     };
   },
   methods: {
+    changeTitle(title) {
+      document.title = title + " - TEDx深圳";
+    },
     getSpeaker() {
       this.$axios
         .get("/speakers", {
@@ -36,8 +41,10 @@ export default {
         .then((res) => {
           const result = res.data.result;
           if (res.data.code == 0) {
-            console.log(result);
-            this.speakerData = result;
+            this.name = result.name;
+            this.portrait = result.portrait;
+            this.contentHTML = result.contentHTML;
+            this.changeTitle(result.name);
             // this.getList(this.speakerData.id);
           }
         });

@@ -33,6 +33,9 @@ export default {
     };
   },
   methods: {
+    changeTitle(title) {
+      document.title = title + " - TEDx深圳";
+    },
     getVideoDefault() {
       this.$axios
         .get("/videos", {
@@ -46,6 +49,7 @@ export default {
             this.contentHTML = result.contentHTML;
             this.title = result.title;
             this.videoSrc = result.video.src;
+            this.changeTitle(result.title);
           }
         });
     },

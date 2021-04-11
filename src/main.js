@@ -16,6 +16,17 @@ Vue.config.productionTip = false
 axios.defaults.baseURL = 'http://www.tedxshenzhen.cn/api/'
 Vue.prototype.$axios = axios
 
+router.beforeEach((to, from, next) => {
+  /* 路由发生变化修改页面title */
+  const title = " - TEDx深圳";
+  if (to.meta.title) {
+    document.title = to.meta.title + title;
+  } else {
+    document.title = "TEDx深圳"
+  }
+  next()
+})
+
 import VueLazyLoad from "vue-lazyload"
 Vue.use(VueLazyLoad, {
   preLoad: 1.3,

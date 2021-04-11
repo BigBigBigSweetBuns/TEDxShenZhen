@@ -37,7 +37,7 @@ export default {
           "<p>In a world beset by inordinate challenges that span cultural, social, political, economic, environmental and existential concerns, seeking the truth has never been more critical to our survival.</p><p>2020 marks TEDxSydney’s 11th year and, due to COVID-19, our first year with a primarily online audience. When we chose the theme of REAL, we could not have known just how apt it would be considering the global impact of the pandemic – an impact that has reshaped our reality. How do we know what is real and truthful amid the noise we live in every day? How can we separate reality from fiction? And what is genuine versus imagined?</p>",
       },
       iframeSrc: "",
-      routePath:"",
+      routePath: "",
     };
   },
   computed: {
@@ -49,6 +49,9 @@ export default {
     },
   },
   methods: {
+    changeTitle(title) {
+      document.title = title + " - TEDx深圳";
+    },
     setIframeHeight: function () {
       let that = this;
       this.$nextTick(() => {
@@ -70,6 +73,7 @@ export default {
           if (res.data.code == 0) {
             this.articleType = result.article.type;
             this.iframeSrc = result.article.src;
+            this.changeTitle(result.title);
           }
         })
         .then(() => {
