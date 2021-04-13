@@ -8,8 +8,6 @@
       controls
       indicators
       background="#ababab"
-      img-width="1024"
-      img-height="480"
       style="text-shadow: 1px 1px 2px #333"
     >
       <!-- Slides with image only -->
@@ -17,7 +15,19 @@
         v-for="(img, index) in banner"
         :key="index"
         :img-src="img.src"
-      ></b-carousel-slide>
+      >
+        <template v-slot:img>
+          <router-link :to="img.href">
+            <img
+              class="d-block img-fluid w-100"
+              width="1024"
+              height="480"
+              :src="img.src"
+              :alt="img.alt"
+            />
+          </router-link>
+        </template>
+      </b-carousel-slide>
     </b-carousel>
   </div>
 </template>
@@ -31,16 +41,22 @@ export default {
       default: function () {
         return [
           {
-            src: "https://picsum.photos/1024/480/?image=54",
+            src:
+              "https://tedxshenzhen.oss-cn-shenzhen.aliyuncs.com/images/banner/changedby.jpg",
             alt: "banner",
+            href: "/",
           },
           {
-            src: "https://picsum.photos/1024/480/?image=58",
+            src:
+              "https://tedxshenzhen.oss-cn-shenzhen.aliyuncs.com/images/banner/aboutus.jpg",
             alt: "banner",
+            href: "/",
           },
           {
-            src: "https://picsum.photos/1024/480/?image=55",
+            src:
+              "https://tedxshenzhen.oss-cn-shenzhen.aliyuncs.com/images/banner/previous.jpg",
             alt: "banner",
+            href: "/",
           },
         ];
       },
