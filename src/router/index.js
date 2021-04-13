@@ -120,6 +120,10 @@ const routes = [
     meta: {
       title: "取消订阅邮件服务"
     }
+  }, {
+    path: "/data_demand",
+    name: "data_demand",
+    component: () => import(/* webpackChunkName: "tool" */ '../views/data_demand/data_demand.vue'),
   }
 ]
 
