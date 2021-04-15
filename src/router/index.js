@@ -100,11 +100,18 @@ const routes = [
       title: "关于我们"
     }
   }, {
-    path: '/about/:id',
-    name: 'AboutId',
-    component: () => import(/* webpackChunkName: "All-News" */ '../views/News/News.vue'),
+    path: '/about/contactus',
+    name: 'ContactUs',
+    component: () => import(/* webpackChunkName: "about" */ '../views/About/ContactUs.vue'),
     meta: {
       title: "关于我们"
+    }
+  }, {
+    path: '/about/frequently-asked-questions',
+    name: 'FrequentlyAskedQuestions',
+    component: () => import(/* webpackChunkName: "about" */ '../views/About/FrequentlyAskedQuestions.vue'),
+    meta: {
+      title: "常见答疑"
     }
   }, {
     path: '/EditMD',

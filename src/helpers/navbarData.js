@@ -99,9 +99,13 @@ var navbarData = [
                 sub: "TEDxShenzhen于2019年1⽉19日正式获得TED官方授权",
                 path: "/about"
             }, {
-                name: "我们的团队",
-                sub: "组织者，志愿者",
-                path: "#"
+                name: "联系方式及说明",
+                sub: "Contact Us Pages",
+                path: "/about/contactus"
+            }, {
+                name: "常见答疑",
+                sub: "Frequently Asked Questions Pages",
+                path: "/about/frequently-asked-questions#"
             },
         ],
     },
