@@ -123,14 +123,15 @@ a {
         padding: 1rem 0;
         .submenu {
           display: flex;
-          width: 100%;
+          width: calc(100% + 2rem);
           max-height: 0;
           background-color: $color-white;
           box-sizing: border-box;
+          padding: 0 1rem;
           overflow: hidden;
           position: absolute;
           top: 2.2rem;
-          left: 0;
+          left: -1rem;
           z-index: 500;
           transition: max-height 1s;
           a {
