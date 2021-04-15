@@ -95,7 +95,7 @@ const routes = [
   }, {
     path: '/about',
     name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About/About.vue'),
+    component: () => import(/* webpackChunkName: "about" */ '../views/About/AboutUs.vue'),
     meta: {
       title: "关于我们"
     }
