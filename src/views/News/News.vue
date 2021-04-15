@@ -1,65 +1,27 @@
 <template>
   <div class="news">
-    <iframe
-      :src="iframeSrc"
-      ref="markdown"
-      frameborder="0"
-      marginheight="0"
-      marginwidth="0"
-      scrolling="no"
-      noresize="noresize"
-      :style="'height:' + mdHeight + 'px'"
-      width="100%"
-      height="100%"
-    ></iframe>
-    <!-- <article-default
-      v-else
-      :banner="article.banner"
-      :title="article.title"
-      :contentHTML="article.contentHTML"
-    ></article-default> -->
+    <b-container>
+      <article-iframe :iframeSrc="iframeSrc"></article-iframe>
+    </b-container>
   </div>
 </template>
 
 <script>
-// import ArticleDefault from "@/components/Article/ArticleDefault.vue";
+import ArticleIframe from "@/components/Article/ArticleIframe.vue";
 export default {
+  components: { ArticleIframe },
   name: "news",
-  // components: { ArticleDefault },
   data: function () {
     return {
       mdHeight: 500,
-      articleType: "HTML",
-      article: {
-        title: "TEDxSydney 2020 Presents Discovery Sessions",
-        theme: "News",
-        contentHTML:
-          "<p>In a world beset by inordinate challenges that span cultural, social, political, economic, environmental and existential concerns, seeking the truth has never been more critical to our survival.</p><p>2020 marks TEDxSydney’s 11th year and, due to COVID-19, our first year with a primarily online audience. When we chose the theme of REAL, we could not have known just how apt it would be considering the global impact of the pandemic – an impact that has reshaped our reality. How do we know what is real and truthful amid the noise we live in every day? How can we separate reality from fiction? And what is genuine versus imagined?</p>",
-      },
       iframeSrc: "",
       routePath: "",
     };
   },
-  computed: {
-    isType() {
-      if (this.articleType == "HTML") {
-        return true;
-      }
-      return false;
-    },
-  },
+  computed: {},
   methods: {
     changeTitle(title) {
       document.title = title + " - TEDx深圳";
-    },
-    setIframeHeight: function () {
-      let that = this;
-      this.$nextTick(() => {
-        let iframe = that.$refs.markdown;
-        iframe.onload = function () {
-          that.mdHeight = iframe.contentDocument.body.scrollHeight;
-        };
-      });
     },
     getArticleData: function () {
       this.$axios

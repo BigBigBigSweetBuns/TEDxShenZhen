@@ -19,12 +19,6 @@
 export default {
   name: "ArticleIframe",
   props: {
-    bannerSrc: {
-      type: String,
-    },
-    title: {
-      type: String,
-    },
     iframeSrc: {
       type: String,
       required: true,
@@ -37,9 +31,7 @@ export default {
     };
   },
   watch: {
-    iframeSrc: function (newVal, oldVal) {
-      console.log(newVal);
-      console.log(oldVal);
+    iframeSrc: function () {
       this.setIframeHeight();
     },
   },
@@ -57,7 +49,6 @@ export default {
           typroaExport.style.paddingRight = "0";
           write.style.maxWidth = "100%";
           write.style.padding = "0";
-          console.log(write);
         };
       });
     },
