@@ -44,7 +44,7 @@ export default {
             src:
               "https://tedxshenzhen.oss-cn-shenzhen.aliyuncs.com/images/banner/changedby.jpg",
             alt: "banner",
-            href: "/",
+            href: "/news/2021AnnualConference-preview",
           },
           {
             src:
