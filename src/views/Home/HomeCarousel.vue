@@ -50,7 +50,7 @@ export default {
             src:
               "https://tedxshenzhen.oss-cn-shenzhen.aliyuncs.com/images/banner/aboutus.jpg",
             alt: "banner",
-            href: "/",
+            href: "/about",
           },
           {
             src:
