@@ -33,7 +33,7 @@ export default {
   },
   data: function () {
     return {
-      mdHeight: 500,
+      mdHeight: 100,
     };
   },
   watch: {
