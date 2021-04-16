@@ -167,6 +167,7 @@ a {
     }
     .header-actions {
       display: flex;
+      position: relative;
       .navbar-toggle {
         z-index: 600;
         border: 1px solid $color-border;
