@@ -8,8 +8,9 @@
         md="4"
         v-for="(item, index) in block"
         :key="index"
+        class="item"
       >
-        <router-link :to="item.path">
+        <router-link :to="item.path" class="thumbnail">
           <img :src="item.thumbnail.src" alt="" srcset="" />
         </router-link>
         <router-link :to="item.path">
@@ -78,25 +79,60 @@ export default {
       margin-bottom: 2rem;
     }
   }
-  a {
-    display: block;
-    color: $color-semi;
-    text-decoration: none;
-    margin-bottom: 1rem;
-    &:hover {
-      color: $tedx-red;
+  .item {
+    a {
+      display: block;
+      color: $color-semi;
+      text-decoration: none;
+      margin-bottom: 1rem;
+      transition: all 0.6s;
     }
-  }
-  img {
-    display: block;
-    max-width: 100%;
-    min-height: 5rem;
-    background-color: $color-light;
-    height: auto;
-  }
-  p {
-    color: $color-gray;
-    margin-bottom: 0;
+    .thumbnail {
+      overflow: hidden;
+      position: relative;
+      border-radius: 0.25rem;
+      transition: all 0.6s;
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        transition: all 0.6s;
+      }
+    }
+    img {
+      display: block;
+      max-width: 100%;
+      min-height: 5rem;
+      background-color: $color-light;
+      height: auto;
+      transition: all 0.6s;
+    }
+    p {
+      color: $color-gray;
+      margin-bottom: 0;
+    }
+    &:hover {
+      .thumbnail {
+        &::after {
+          background-color: $color-black;
+          opacity: 0.5;
+        }
+      }
+      img {
+        transform: scale(1.1, 1.1);
+      }
+      a {
+        color: $tedx-red;
+      }
+    }
   }
 
   .see-more {
