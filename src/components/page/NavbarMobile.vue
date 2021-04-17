@@ -21,7 +21,7 @@
         </li>
         <li
           class="menu-item"
-          :class="index == activeItem ? 'active' : ''"
+          :class="{ active: index == activeItem, unfold: unfold[index] }"
           v-for="(item, index) in menu"
           :key="index"
         >
@@ -31,17 +31,15 @@
               v-on:click.native="toggle(index), expandedToggle()"
               >{{ item.name }}</router-link
             >
-            <i
-              v-if="item.dropDown"
-              v-on:click="toggle(index)"
-              class="iconfont icon-right"
-            ></i>
+            <span v-if="item.dropDown" v-on:click="toggle(index)">
+              <i class="iconfont icon-right"></i>
+            </span>
           </div>
           <ul
             class="sub-menu"
             v-if="item.dropDown"
             :style="
-              index == activeItem
+              index == activeItem || unfold[index]
                 ? {
                     height:
                       'calc(' +
@@ -76,12 +74,14 @@
 
 <script>
 import { navbarData } from "@/helpers/navbarData.js";
+import Vue from "vue";
 export default {
   name: "NavbarMobile",
   data: function () {
     return {
       expanded: false, //默认隐藏
       menu: navbarData,
+      unfold: new Array(navbarData.length).fill(false),
       activeItem: -1,
       logoSrc:
         "logo-white.jpg?versionId=CAEQHRiBgMDym7WjwxciIGQzYjYwZDhmNWMyYzQ2ZWU4OGQxNjMxNGNiNzZlODNl",
@@ -102,8 +102,13 @@ export default {
       //控制 左侧导航栏
       this.expanded = !this.expanded;
     },
-    toggle(i) {
-      this.activeItem = i == this.activeItem ? -1 : i;
+    toggle(i) {  // 判断是否已经展开 fold
+      if (!this.unfold[i]) {
+        this.activeItem = i == this.activeItem ? -1 : i;
+      } else {
+        this.activeItem = -1;
+      }
+      Vue.set(this.unfold, i, !this.unfold[i]);
     },
   },
   created: function () {
@@ -134,13 +139,11 @@ li {
 }
 a {
   display: block;
-  width: 100%;
   font-size: $font-size-content;
   color: $color-black;
   line-height: 1;
   &:hover {
     color: $tedx-red;
-    text-decoration: none;
   }
 }
 .active {
@@ -151,8 +154,14 @@ a {
     transform: rotate(90deg);
   }
 }
+.unfold {
+  i {
+    transform: rotate(90deg);
+  }
+}
 .navbar-mobile {
   position: relative;
+  background-color: $bg-color-white;
   .site-branding {
     display: flex;
     justify-content: space-between;
@@ -189,7 +198,7 @@ a {
   .navbar-collapse {
     width: 75vw;
     height: 100%;
-    background: $color-white;
+    background-color: $bg-color-light;
     border-right: $border;
     overflow-y: auto;
     position: fixed;
@@ -198,36 +207,43 @@ a {
     z-index: 999;
     transition: left 1s;
     .main-menu {
+      > .menu-item {
+        margin-bottom: 1rem;
+      }
+      > .menu-item:first-child {
+        margin-bottom: 0;
+      }
       .menu-item {
         font-size: $font-size-content;
+        background: $bg-color-white;
         .logo {
           padding: 0.5rem 1rem;
           border-bottom: $border;
           img {
             height: 2.5rem;
-            // width: 70%;
           }
         }
         > div {
           display: flex;
-          width: 100%;
           line-height: 1;
-          border-bottom: $border;
-          margin: 0;
+          margin: 0 0 0 1rem;
           box-sizing: border-box;
           overflow: hidden;
           a {
-            padding: 1rem;
+            width: 100%;
+            line-height: 3rem;
           }
-
-          i {
-            width: $font-size-content + 2rem;
+          span {
+            width: $font-size-content + 3rem;
             height: $font-size-content + 2rem;
-            font-size: 1rem;
-            line-height: $font-size-content + 2rem;
-            text-align: center;
             box-sizing: border-box;
-            transition: transform 0.6s;
+            padding-left: 1rem;
+            i {
+              display: block;
+              line-height: $font-size-content + 2rem;
+              text-align: center;
+              transition: transform 0.6s;
+            }
           }
         }
       }
