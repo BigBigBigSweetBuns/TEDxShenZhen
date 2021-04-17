@@ -1,13 +1,13 @@
 <template>
   <div class="card">
-    <router-link :to="path">
+    <router-link :to="path" class="thumbnail">
       <img v-lazy="thumbnail.src" :alt="thumbnail.alt" srcset="" />
     </router-link>
-    <h4>
-      <router-link :to="path">
+    <router-link :to="path">
+      <h4>
         {{ title }}
-      </router-link>
-    </h4>
+      </h4>
+    </router-link>
     <p>{{ introduction }}</p>
   </div>
 </template>
@@ -56,18 +56,30 @@ export default {
     color: $color-semi;
     display: block;
     margin-bottom: 0.5rem;
-    &:hover,
-    &:active {
-      color: $tedx-red;
-    }
-    h4 {
-      margin-bottom: 0.5rem;
+    transition: all 0.6s;
+  }
+  .thumbnail {
+    position: relative;
+    border-radius: $border-radius;
+    overflow: hidden;
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: all 0.6s;
     }
     img {
       display: block;
       width: 100%;
       min-height: 5rem;
       background-color: $color-light;
+      transition: all 0.6s;
     }
   }
   p {
@@ -75,6 +87,21 @@ export default {
     font-size: $font-size-content;
     line-height: 1.2;
     margin-bottom: 0;
+  }
+  &:hover,
+  &:active {
+    .thumbnail {
+      &::after {
+        background-color: $color-black;
+        opacity: 0.5;
+      }
+    }
+    img {
+      transform: scale(1.1, 1.1);
+    }
+    a {
+      color: $tedx-red;
+    }
   }
 }
 </style>

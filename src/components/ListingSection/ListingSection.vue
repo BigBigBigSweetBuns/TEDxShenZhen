@@ -90,7 +90,7 @@ export default {
     .thumbnail {
       overflow: hidden;
       position: relative;
-      border-radius: 0.25rem;
+      border-radius: $border-radius;
       transition: all 0.6s;
       &::after {
         content: "";
@@ -101,34 +101,35 @@ export default {
         position: absolute;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
         opacity: 0;
         transition: all 0.6s;
       }
+      img {
+        display: block;
+        max-width: 100%;
+        min-height: 5rem;
+        background-color: $color-light;
+        height: auto;
+        transition: all 0.6s;
+      }
     }
-    img {
-      display: block;
-      max-width: 100%;
-      min-height: 5rem;
-      background-color: $color-light;
-      height: auto;
-      transition: all 0.6s;
-    }
+
     p {
       color: $color-gray;
       margin-bottom: 0;
     }
-    &:hover {
+    &:hover,
+    &:active {
       .thumbnail {
         &::after {
           background-color: $color-black;
           opacity: 0.5;
         }
+        img {
+          transform: scale(1.1, 1.1);
+        }
       }
-      img {
-        transform: scale(1.1, 1.1);
-      }
+
       a {
         color: $tedx-red;
       }
