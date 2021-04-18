@@ -1,10 +1,12 @@
 <template>
   <div class="all-news">
+    <b-container>
     <cards-list-button
       :header="header"
       :cardsList="cardsList"
       :bottomout="bottomout"
     ></cards-list-button>
+    </b-container>
   </div>
 </template>
 
@@ -53,7 +55,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/variable.scss";
 .all-news {
+  background-color: $bg-color-white;
   margin-top: 2rem;
   margin-bottom: 2rem;
   position: relative;
