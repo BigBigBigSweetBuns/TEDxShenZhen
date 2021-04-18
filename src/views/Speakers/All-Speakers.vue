@@ -63,14 +63,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/variable.scss";
 .all-speakers {
+  background-color: $bg-color-white;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  padding-bottom: 2rem;
   .header {
     font-weight: bold;
     text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
 }
 </style>
