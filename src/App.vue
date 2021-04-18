@@ -28,11 +28,13 @@ export default {
 </script>
 <style lang="scss" >
 @import "./assets/main.scss";
+@import "./assets/variable.scss";
 html {
   overflow-x: hidden;
 }
 #app {
   width: 100vw;
+  background-color: $bg-color-light;
 }
 body {
   font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
