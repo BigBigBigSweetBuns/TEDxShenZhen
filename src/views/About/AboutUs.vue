@@ -1,5 +1,5 @@
 <template>
-  <div class="frequently-asked-questions">
+  <div class="about-us">
     <b-container>
       <banner-default :bannerSrc="bannerSrc"></banner-default>
       <article-iframe :iframeSrc="iframeSrc"></article-iframe>
@@ -29,4 +29,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/variable.scss";
+.about-us {
+  background-color: $bg-color-white;
+  margin: 2rem 0;
+}
 </style>

@@ -30,4 +30,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/assets/variable.scss";
+.frequently-asked-questions {
+  background-color: $bg-color-white;
+  margin: 2rem 0;
+}
 </style>

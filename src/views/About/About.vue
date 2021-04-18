@@ -29,6 +29,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/variable.scss";
 .about {
+  background-color: $bg-color-white;
   margin-bottom: 2rem;
   ::v-deep .content {
     h4 {
