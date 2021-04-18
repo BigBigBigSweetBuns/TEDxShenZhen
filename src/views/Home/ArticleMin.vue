@@ -41,7 +41,7 @@ export default {
 @import "@/assets/variable.scss";
 .article {
   background-color: $bg-color-white;
-  padding: 2rem 1rem 1rem;
+  padding: 2rem 0rem 1rem;
   header {
     margin-bottom: 1.5rem;
   }

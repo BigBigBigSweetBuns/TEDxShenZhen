@@ -1,21 +1,25 @@
 <template>
   <div class="home">
-    <b-container>
-      <div class="Card">
+    <div class="Card">
+      <b-container>
         <home-carousel></home-carousel>
         <article-min header="" :contentHTML="articleContent" />
-      </div>
-      <!-- <grid-divider></grid-divider> -->
-      <div class="Card">
+      </b-container>
+    </div>
+    <!-- <grid-divider></grid-divider> -->
+    <div class="Card">
+      <b-container>
         <listing-section
           header="最新新闻"
           :block="newsSection"
           topath="/news"
           class="news"
         ></listing-section>
-      </div>
-      <!-- <grid-divider></grid-divider> -->
-      <div class="Card">
+      </b-container>
+    </div>
+    <!-- <grid-divider></grid-divider> -->
+    <div class="Card">
+      <b-container>
         <listing-section
           header="最新视频"
           :block="videosSection"
@@ -23,8 +27,8 @@
           class="videos"
         ></listing-section>
         <!-- <grid-divider></grid-divider> -->
-      </div>
-    </b-container>
+      </b-container>
+    </div>
   </div>
 </template>
 
@@ -87,24 +91,22 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.Card {
-  border-radius: 0.25rem;
-  box-shadow: 0 1px 3px rgba($color: #181818, $alpha: 0.1);
-  margin-bottom: 2rem;
-}
+@import "@/assets/variable.scss";
 .home {
-  margin-top: 1rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
-  > .container {
-    padding: 0;
-  }
-  ::v-deep .article {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  ::v-deep .listing-section {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+  // ::v-deep .article {
+  //   padding-left: 1rem;
+  //   padding-right: 1rem;
+  // }
+  // ::v-deep .listing-section {
+  //   padding-left: 1rem;
+  //   padding-right: 1rem;
+  // }
+}
+.Card {
+  background-color: $bg-color-white;
+  border-radius: 0.25rem;
+  margin-bottom: 2rem;
 }
 </style>
