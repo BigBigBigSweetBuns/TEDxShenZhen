@@ -3,16 +3,14 @@
     <div class="spinner" v-if="loading && !isbottomout">
       <b-spinner label="Loading..."></b-spinner>
     </div>
-    <b-container>
-      <h3 class="header">{{ header }}</h3>
-      <cards-list :cardsList="cardsList"></cards-list>
-      <b-button
-        class="mx-auto"
-        v-if="!loading && !isbottomout"
-        v-on:click="loadmore"
-        >加载更多</b-button
-      >
-    </b-container>
+    <h3 class="header">{{ header }}</h3>
+    <cards-list :cardsList="cardsList"></cards-list>
+    <b-button
+      class="mx-auto"
+      v-if="!loading && !isbottomout"
+      v-on:click="loadmore"
+      >加载更多</b-button
+    >
   </div>
 </template>
 
@@ -74,8 +72,10 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/variable.scss";
 .cards-list-button {
+  background-color: $bg-color-white;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  padding-bottom: 2rem;
   position: relative;
   .spinner {
     display: block;
@@ -88,8 +88,8 @@ export default {
   .header {
     font-size: 2rem;
     font-weight: bold;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
   .mx-auto {
     display: block;

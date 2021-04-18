@@ -67,8 +67,10 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/variable.scss";
 .video-default {
+  background-color: $bg-color-white;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  padding-bottom: 2rem;
   .videoview {
     width: 100%;
     margin-bottom: 1rem;
@@ -78,8 +80,8 @@ export default {
     }
   }
   h3 {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
   p {
     text-indent: 2em;

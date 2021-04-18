@@ -1,9 +1,11 @@
 <template>
   <div class="videos">
-    <cards-list-button
-      :header="header"
-      :cardsList="cardsList"
-    ></cards-list-button>
+    <b-container>
+      <cards-list-button
+        :header="header"
+        :cardsList="cardsList"
+      ></cards-list-button>
+    </b-container>
   </div>
 </template>
 
@@ -53,8 +55,9 @@ export default {
 @import "@/assets/variable.scss";
 
 .videos {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  background-color: $bg-color-white;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   position: relative;
   .spinner {
     display: block;

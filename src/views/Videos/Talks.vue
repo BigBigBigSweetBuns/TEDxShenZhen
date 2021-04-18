@@ -1,9 +1,11 @@
 <template>
   <div class="videos-talks">
+    <b-container>
     <cards-list-button
       :header="header"
       :cardsList="cardsList"
     ></cards-list-button>
+    </b-container>
   </div>
 </template>
 
@@ -53,6 +55,7 @@ export default {
 @import "@/assets/variable.scss";
 
 .videos-talks {
+  background-color: $bg-color-white;
   margin-top: 1rem;
   margin-bottom: 1rem;
   position: relative;
