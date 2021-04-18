@@ -4,6 +4,7 @@
       <h3>{{ title }}</h3>
       <div class="videoview" ref="videoview">
         <iframe
+          v-if="videoType == 'iframe'"
           :src="videoSrc"
           scrolling="no"
           border="0"
@@ -14,6 +15,13 @@
           :style="'height:' + iframeHeight"
         >
         </iframe>
+        <video
+          v-else
+          :src="videoSrc"
+          width="100%"
+          :style="'height:' + iframeHeight"
+          controls
+        ></video>
       </div>
       <p v-html="contentHTML"></p>
     </b-container>
@@ -28,6 +36,7 @@ export default {
       title: "",
       contentHTML: "",
       videoSrc: "",
+      videoType: "src",
       iframeHeight: "2rem",
       routePath: "",
     };
@@ -49,6 +58,8 @@ export default {
             this.contentHTML = result.contentHTML;
             this.title = result.title;
             this.videoSrc = result.video.src;
+            console.log(this.videoSrc);
+            this.videoType = result.video.type;
             this.changeTitle(result.title);
           }
         });
