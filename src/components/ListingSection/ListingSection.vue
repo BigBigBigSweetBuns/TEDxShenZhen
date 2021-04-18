@@ -1,6 +1,11 @@
 <template>
   <div class="listing-section">
-    <h2>{{ header }}</h2>
+    <div class="header">
+      <h2>{{ header }}</h2>
+      <router-link :to="topath" class="see-more">
+        更多 <i class="iconfont icon-right-bold"></i>
+      </router-link>
+    </div>
     <b-row>
       <b-col
         cols="12"
@@ -19,9 +24,6 @@
         <p>{{ item.introduction }}</p>
       </b-col>
     </b-row>
-    <router-link :to="topath" class="see-more">
-      更多 <i class="iconfont icon-right-bold"></i>
-    </router-link>
   </div>
 </template>
 
@@ -66,12 +68,29 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/variable";
 .listing-section {
+  background-color: $bg-color-white;
   position: relative;
-  > h2 {
-    color: $color-gray;
-    line-height: 1;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+  .header {
+    position: relative;
+    margin-left: -15px;
+    margin-right: -15px;
+    h2 {
+      color: $color-gray;
+      line-height: 1;
+      padding-top: 2rem;
+      padding-left: 15px;
+      padding-bottom: 2rem;
+    }
+    .see-more {
+      display: inline;
+      color: $tedx-red;
+      font-size: $font-size-content;
+      line-height: 1;
+      font-weight: bold;
+      position: absolute;
+      right: 15px;
+      top: 2rem + $font-size-content / 2;
+    }
   }
   .row {
     margin-bottom: 2rem;
@@ -134,16 +153,6 @@ export default {
         color: $tedx-red;
       }
     }
-  }
-
-  .see-more {
-    color: $tedx-red;
-    font-size: $font-size-content;
-    line-height: 1;
-    font-weight: bold;
-    position: absolute;
-    right: 15px;
-    top: (2rem - $font-size-content) / 2;
   }
 }
 </style>

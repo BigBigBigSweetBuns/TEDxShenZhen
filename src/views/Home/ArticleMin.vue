@@ -40,7 +40,8 @@ export default {
 <style scoped lang="scss">
 @import "@/assets/variable.scss";
 .article {
-  margin-top: 2rem;
+  background-color: $bg-color-white;
+  padding: 2rem 1rem 1rem;
   header {
     margin-bottom: 1.5rem;
   }

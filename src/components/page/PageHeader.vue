@@ -17,8 +17,11 @@
             <router-link
               :to="item.path"
               :class="item.path == activeNavbar ? 'active' : ''"
-              >{{ item.name }}</router-link
-            >
+              >{{ item.name }}
+              <span v-if="item.dropDown" v-on:click="toggle(index)">
+                <i class="iconfont icon-unfold"></i>
+              </span>
+            </router-link>
             <ul v-if="item.dropDown" class="submenu">
               <li
                 :style="
@@ -90,11 +93,14 @@ a {
   color: $tedx-red;
 }
 .page-header {
+  background-color: $bg-color-white;
+  > .container {
+  }
   border-top: 2px solid $tedx-red;
   .site-branding {
     display: flex;
-    position: relative;
     border-bottom: 2px solid $color-border;
+    position: relative;
     .site-title {
       margin: 0.5rem 0;
       img {

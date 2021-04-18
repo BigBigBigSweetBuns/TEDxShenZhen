@@ -4,9 +4,7 @@
       <b-row class="footer-newsletter-form">
         <b-form>
           <div class="form-inline">
-            <label class="" for="newsletter-email"
-              >订阅我们的邮件服务</label
-            >
+            <label class="" for="newsletter-email">订阅我们的邮件服务</label>
             <b-form-input
               id="newsletter-email"
               class=""
@@ -22,7 +20,9 @@
         </b-form>
         <div class="media-widgets" v-if="is_mobilewidth">
           <div class="li" v-for="(icon, index) in mediaIcons" :key="index">
-            <a target="_blank" :href="icon.href"><i class="iconfont" :class="icon.icon"></i></a>
+            <a target="_blank" :href="icon.href"
+              ><i class="iconfont" :class="icon.icon"></i
+            ></a>
           </div>
         </div>
       </b-row>
@@ -95,13 +95,17 @@ li {
   padding: 0;
 }
 .page-footer {
+  border-top: 2px solid $tedx-red;
+  background-color: $bg-color-white;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   > .container {
+    border-radius: 0.25rem;
     > .row {
       margin-left: 0;
       margin-right: 0;
     }
   }
-  border-top: 2px solid $tedx-red;
   .footer-newsletter-form {
     display: flex;
     justify-content: space-between;
@@ -157,9 +161,10 @@ li {
           font-size: $font-size-head;
           margin-right: 1rem;
         }
-      &:hover,&:active{
-        color: $tedx-red;
-      }
+        &:hover,
+        &:active {
+          color: $tedx-red;
+        }
       }
     }
   }
