@@ -87,22 +87,24 @@ export default {
         "logo-white.jpg?versionId=CAEQHRiBgMDym7WjwxciIGQzYjYwZDhmNWMyYzQ2ZWU4OGQxNjMxNGNiNzZlODNl",
     };
   },
-  computed: {},
+  watch: {
+    $route: "init_ActiveItem",
+  },
   methods: {
     init_ActiveItem() {
       const pathName = this.$route.path.split("/", 2);
       const path = "/" + pathName[pathName.length - 1].toLowerCase();
-      this.menu.forEach((e, i) => {
-        if (e.path == path) {
-          this.activeItem = i;
-        }
+      this.activeItem = this.menu.findIndex((e) => {
+        return e.path == path;
       });
+      this.unfold = this.unfold.fill(false);
     },
     expandedToggle() {
       //控制 左侧导航栏
       this.expanded = !this.expanded;
     },
-    toggle(i) {  // 判断是否已经展开 fold
+    toggle(i) {
+      // 判断是否已经展开 fold
       if (!this.unfold[i]) {
         this.activeItem = i == this.activeItem ? -1 : i;
       } else {
@@ -111,9 +113,8 @@ export default {
       Vue.set(this.unfold, i, !this.unfold[i]);
     },
   },
-  created: function () {
-    this.init_ActiveItem();
-  },
+  created: function () {},
+  mounted: function () {},
 };
 </script>
 
