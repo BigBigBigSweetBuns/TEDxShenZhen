@@ -62,6 +62,9 @@ export default {
     position: relative;
     border-radius: $border-radius;
     overflow: hidden;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
     &::after {
       content: "";
       display: block;
@@ -77,7 +80,6 @@ export default {
     img {
       display: block;
       width: 100%;
-      min-height: 5rem;
       background-color: $color-light;
       transition: all 0.6s;
     }
