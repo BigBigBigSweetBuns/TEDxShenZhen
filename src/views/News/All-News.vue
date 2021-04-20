@@ -18,7 +18,7 @@ export default {
   name: "AllNews",
   data() {
     return {
-      header: "TEDx 新闻",
+      header: "新闻",
       cardsList: [],
       pageNum: 1,
       bottomout: false,
@@ -46,7 +46,6 @@ export default {
           } else {
             this.bottomout = true;
           }
-          console.log("res", res);
         })
         .catch(() => {
           this.cardsList = this.cardsList.splice(1, 0);
@@ -66,14 +65,6 @@ export default {
   margin-top: 2rem;
   margin-bottom: 2rem;
   position: relative;
-  .spinner {
-    display: block;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 499;
-  }
   .mx-auto {
     display: block;
   }

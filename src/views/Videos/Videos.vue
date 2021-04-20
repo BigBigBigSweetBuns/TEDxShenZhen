@@ -4,6 +4,7 @@
       <cards-list-button
         :header="header"
         :cardsList="cardsList"
+        @getList="getList"
       ></cards-list-button>
     </b-container>
   </div>
@@ -42,6 +43,9 @@ export default {
               }),
             ];
           }
+        })
+        .catch(() => {
+          this.cardsList = this.cardsList.splice(1, 0);
         });
     },
   },
@@ -59,14 +63,6 @@ export default {
   margin-top: 2rem;
   margin-bottom: 2rem;
   position: relative;
-  .spinner {
-    display: block;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 499;
-  }
   .header {
     margin-top: 2rem;
     margin-bottom: 2rem;
