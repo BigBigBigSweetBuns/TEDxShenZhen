@@ -1,11 +1,12 @@
 <template>
   <div class="all-news">
     <b-container>
-    <cards-list-button
-      :header="header"
-      :cardsList="cardsList"
-      :bottomout="bottomout"
-    ></cards-list-button>
+      <cards-list-button
+        :header="header"
+        :cardsList="cardsList"
+        :bottomout="bottomout"
+        @getList="getList"
+      ></cards-list-button>
     </b-container>
   </div>
 </template>
@@ -45,6 +46,10 @@ export default {
           } else {
             this.bottomout = true;
           }
+          console.log("res", res);
+        })
+        .catch(() => {
+          this.cardsList = this.cardsList.splice(1, 0);
         });
     },
   },

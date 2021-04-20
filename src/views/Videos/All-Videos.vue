@@ -4,6 +4,7 @@
       <cards-list-button
         :header="header"
         :cardsList="cardsList"
+        @getList="getList"
       ></cards-list-button>
     </b-container>
   </div>
@@ -40,6 +41,9 @@ export default {
               }),
             ];
           }
+        })
+        .catch(() => {
+          this.cardsList = this.cardsList.splice(1, 0);
         });
     },
   },

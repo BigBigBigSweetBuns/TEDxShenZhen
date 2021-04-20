@@ -36,7 +36,7 @@ export default {
     return {
       pageNum: 1,
       loading: false,
-      oldLength: 0,
+      oldLength: 12,
       isbottomout: this.bottomout,
     };
   },
@@ -52,9 +52,8 @@ export default {
   methods: {
     loadmore() {
       this.loading = true;
-
       this.pageNum++;
-      this.$parent.getList(this.pageNum);
+      this.$emit("getList", this.pageNum);
     },
     ifbottomout(length) {
       // 触底检测
@@ -65,7 +64,9 @@ export default {
       this.oldLength = length;
     },
   },
-  created() {},
+  created() {
+    this.loading = true;
+  },
 };
 </script>
 
