@@ -156,6 +156,43 @@ changeDowcumentTitle(title) {
 
 通过 外链 bilibili 视频。 2021-04-16
 
+**更新**
+
+使用 阿里云对象储存。 2021-04-20
+
+
+
+#### vuex 
+
+管理 弹窗组件和加载动画组件状态
+
+
+
+### 邮件订阅/退订
+
+将订阅 / 退订分为两个表。
+
+```
+{
+	email    : String,
+	createTS : Number, // 时间戳
+}
+```
+
+退订
+
+```
+{
+	id       : Number,
+	email    : String,
+	createTS : Number, // 时间戳
+}
+```
+
+提取 订阅/退订 列表需要账密。
+
 
 
 #### 动画效果
+
+每个网页载入动画，待加载动画。
