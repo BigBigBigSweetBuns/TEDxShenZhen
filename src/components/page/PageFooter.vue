@@ -1,5 +1,15 @@
 <template>
   <div class="page-footer">
+    <transition name="test-fade">
+      <b-alert
+        :show="dismissCountDown"
+        variant="danger"
+        @dismissed="dismissCountDown = 0"
+        @dismiss-count-down="countDownChanged"
+      >
+        {{ alertText }}
+      </b-alert>
+    </transition>
     <div class="container">
       <b-row class="footer-newsletter-form">
         <b-form>
@@ -11,7 +21,7 @@
               placeholder="邮箱地址"
             ></b-form-input>
             <b-button
-              type="submit"
+              @click="refuseAlert()"
               class="btn btn-outline-dark"
               variant="defualt"
               >GO</b-button
@@ -71,6 +81,10 @@ export default {
     return {
       navbar: navbarData,
       mediaIcons: mediaIcons,
+      // alert
+      dismissCountDown: 0,
+      dismissSecs: 3,
+      alertText: "该功能尚未实现",
     };
   },
   computed: {
@@ -78,10 +92,32 @@ export default {
       return window.innerWidth >= 576;
     },
   },
+  methods: {
+    // alert
+    countDownChanged(dismissCountDown) {
+      this.dismissCountDown = dismissCountDown;
+    },
+    refuseAlert() {
+      this.dismissCountDown = this.dismissSecs;
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
+.test-fade-enter-active,
+.test-fade-leave-active {
+  transition: all 0.5s;
+}
+.test-fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 @import "@/assets/variable.scss";
 @mixin padding {
   padding-top: 1.5rem;
