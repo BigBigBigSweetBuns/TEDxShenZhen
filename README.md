@@ -196,3 +196,5 @@ changeDowcumentTitle(title) {
 #### 动画效果
 
 每个网页载入动画，待加载动画。
+
+每个页面添加banner 和 部分展示文本
