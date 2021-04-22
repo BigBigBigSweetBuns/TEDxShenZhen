@@ -3,7 +3,7 @@
     <transition name="test-fade">
       <b-alert
         :show="dismissCountDown"
-        variant="danger"
+        :variant="variant"
         @dismissed="dismissCountDown = 0"
         @dismiss-count-down="countDownChanged"
       >
@@ -17,13 +17,16 @@
             <label class="" for="newsletter-email">订阅我们的邮件服务</label>
             <b-form-input
               id="newsletter-email"
-              class=""
               placeholder="邮箱地址"
+              :state="input_state"
+              type="email"
+              v-model="email"
             ></b-form-input>
             <b-button
               @click="refuseAlert()"
               class="btn btn-outline-dark"
               variant="defualt"
+              :disabled="!input_state"
               >GO</b-button
             >
           </div>
@@ -85,9 +88,22 @@ export default {
       dismissCountDown: 0,
       dismissSecs: 3,
       alertText: "该功能尚未实现",
+      variant: "danger",
+      // form
+      email: "",
     };
   },
   computed: {
+    input_state() {
+      if (
+        this.email.match(/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/)
+      ) {
+        return true;
+      } else if (this.email == "") {
+        return null;
+      }
+      return false;
+    },
     is_mobilewidth() {
       return window.innerWidth >= 576;
     },
@@ -98,7 +114,30 @@ export default {
       this.dismissCountDown = dismissCountDown;
     },
     refuseAlert() {
-      this.dismissCountDown = this.dismissSecs;
+      // 调用
+      let that = this;
+      if (this.input_state) {
+        this.$axios
+          .post("/tools/subscription", {
+            email: this.email,
+          })
+          .then((res) => {
+            if (res.data.code == 0) {
+              that.alertText = "您已订阅成功";
+              that.variant = "success";
+              that.dismissCountDown = that.dismissSecs;
+            } else {
+              this.alertText = "订阅失败";
+              that.variant = "danger";
+              this.dismissCountDown = this.dismissSecs;
+            }
+          })
+          .catch(() => {
+            this.alertText = "订阅失败";
+            that.variant = "danger";
+            this.dismissCountDown = this.dismissSecs;
+          });
+      }
     },
   },
 };
