@@ -37,7 +37,7 @@ export default {
   name: "carousel",
   props: {
     banner: {
-      type: Object,
+      type: Array,
       default: function () {
         return [
           {
