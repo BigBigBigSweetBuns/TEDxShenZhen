@@ -11,7 +11,7 @@
         cols="12"
         sm="6"
         md="4"
-        v-for="(item, index) in block"
+        v-for="(item, index) in cardsData"
         :key="index"
         class="item"
       >
@@ -56,12 +56,16 @@ export default {
     },
   },
   data: function () {
-    return {
-      // header: "",
-      // block: block,
-    };
+    return {};
   },
-  computed: {},
+  computed: {
+    cardsData() {
+      return this.block.map((e) => {
+        e.path = this.topath + e.path;
+        return e
+      });
+    },
+  },
 };
 </script>
 
