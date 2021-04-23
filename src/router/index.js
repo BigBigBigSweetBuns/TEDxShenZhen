@@ -127,6 +127,14 @@ const routes = [
     meta: {
       title: "取消订阅邮件服务"
     }
+  },
+  {
+    path: '/subscription',
+    name: 'Subscription',
+    component: () => import(/* webpackChunkName: "tool" */ '../views/Subscription/Subscription.vue'),
+    meta: {
+      title: "订阅信息管理"
+    }
   }, {
     path: "/data_demand",
     name: "data_demand",
