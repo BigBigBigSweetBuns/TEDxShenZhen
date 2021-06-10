@@ -11,7 +11,7 @@ import ArticleIframe from "@/components/Article/ArticleIframe.vue";
 export default {
   components: { ArticleIframe },
   name: "news",
-  data: function () {
+  data: function() {
     return {
       mdHeight: 500,
       iframeSrc: "",
@@ -23,7 +23,7 @@ export default {
     changeTitle(title) {
       document.title = title + " - TEDx深圳";
     },
-    getArticleData: function () {
+    getArticleData: function() {
       this.$axios
         .get("/news", {
           params: {
@@ -37,22 +37,20 @@ export default {
             this.iframeSrc = result.article.src;
             this.changeTitle(result.title);
           }
-        })
-        .then(() => {
-          this.setIframeHeight();
         });
     },
   },
-  created: function () {
+  created: function() {
     // 请求数据
     this.routePath = "/" + this.$route.params.path;
     this.getArticleData();
   },
-  mounted: function () {},
+  mounted: function() {},
 };
 </script>
 <style lang="scss" scoped>
 .news {
+  background-color: #fff;
   margin-bottom: 2rem;
 }
 </style>
